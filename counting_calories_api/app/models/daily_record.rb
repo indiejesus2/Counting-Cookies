@@ -1,4 +1,4 @@
 class DailyRecord < ApplicationRecord
     belongs_to :user
-    validates :user_id, :date, presence: :true
+    validates :user_id, presence: :true
 end

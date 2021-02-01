@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create(name: 'Jenny Craig', target: 1500)
+record = DailyRecord.create(user_id: 1, item_name: "Banana", item_calories: 25)
