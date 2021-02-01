@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import {Route, Switch} from 'react-router-dom'
 import {fetchUsers} from '../actions/fetchUsers'
-import Users from '../components/Users'
-import User from '../components/User'
-import UserInpt from '../components/UserInput'
+import Users from '../components/Users/Users'
+import User from '../components/Users/User'
+import UserInpt from '../components/Users/UserInput'
 
 class UsersContainer extends Component {
     
@@ -14,7 +15,9 @@ class UsersContainer extends Component {
     render() {
         return (
             <div>
-                <Users users={this.props.users} />
+                <Switch>
+                    <Route path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} />}/>
+                </Switch>
             </div>
         )
     }
