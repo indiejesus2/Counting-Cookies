@@ -1,0 +1,14 @@
+    def create
+        @record = @user.daily_records.new(record_params)
+        @record.date = DateTime.now
+        @record.daily_allowance = @user.target
+        @record.save
+    end
+
+    def set_user
+        @user = User.find(params[:user_id])
+    end
+
+    def record_params
+        params.require(:record).permit(:user_id, :item_name, :item_calories)
+    end
