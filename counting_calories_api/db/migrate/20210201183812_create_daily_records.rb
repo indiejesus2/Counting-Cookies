@@ -3,6 +3,8 @@ class CreateDailyRecords < ActiveRecord::Migration[6.0]
     create_table :daily_records do |t|
       t.integer :user_id
       t.datetime :date
+      t.string :item_name
+      t.integer :item_calories
       t.integer :daily_total
       t.integer :daily_allowance
 
