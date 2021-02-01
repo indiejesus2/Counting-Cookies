@@ -1,2 +1,0 @@
-class DailyRecordsController < ApplicationController
-end
