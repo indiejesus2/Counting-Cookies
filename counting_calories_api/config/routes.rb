@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :daily_records
-      resources :users
+      resources :users do
+        resources :daily_records
+      end
     end
   end
   
