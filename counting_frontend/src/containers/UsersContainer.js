@@ -9,15 +9,27 @@ import UserInput from '../components/Users/UserInput'
 class UsersContainer extends Component {
     
     componentDidMount() {
+
         this.props.fetchUsers()
     }
 
+    componentWillUnmount() {
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        debugger
+        if(prevProps == this.props) {
+            this.props.fetchUsers()
+        }
+    }
+
     render() {
+
         return (
             <div>
                 <Switch>
-                    <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />}/>
-                    <Route path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} />}/>
+                    <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />}/>
+                    <Route direct path='/users' render={(routerProps) => <Users {...routerProps} key={this.props.match.params.id} users={this.props.users} />}/>
                 </Switch>
             </div>
         )

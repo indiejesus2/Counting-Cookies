@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import User from './User'
 
 class Users extends Component {
@@ -8,9 +8,16 @@ class Users extends Component {
             <div>
                 <h1>Users</h1>
                 <ul>
-                    {this.props.users.map(user => <li key={user.id}>
-                        <Link to={`/users/${user.id}`}>{user.name}</Link>
-                    </li>)}
+                    {this.props.users.map(user =>
+                        <li key={user.id}>
+                            
+                            {/* <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} user={user}/>}/> */}
+
+                            <Link to={`/users/${user.id}`} >{user.name}</Link>
+                            {/* <User key={user.id} user={user} /> */}
+                            {/* {user.name} */}
+                        </li>
+                    )}
                 </ul>
             </div>
         )
