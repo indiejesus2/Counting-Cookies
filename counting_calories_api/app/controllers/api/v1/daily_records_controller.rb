@@ -14,7 +14,7 @@ class Api::V1::DailyRecordsController < ApplicationController
 
     def create
         @record = @user.daily_records.new(record_params)
-        @record.date = DateTime.now
+        byebug
         @record.daily_allowance = @user.target
         @record.save
     end
@@ -30,7 +30,7 @@ class Api::V1::DailyRecordsController < ApplicationController
     end
 
     def record_params
-        params.require(:record).permit(:user_id, :item_name, :item_calories)
+        params.require(:record).permit(:user_id, :item_name, :item_calories, date: )
     end
 
 

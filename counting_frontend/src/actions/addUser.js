@@ -1,5 +1,4 @@
 export const addUser = (user) => {
-    debugger
     return (dispatch) => {
         const configObj = {
             method: "POST",
