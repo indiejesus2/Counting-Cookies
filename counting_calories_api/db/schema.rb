@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_183812) do
+ActiveRecord::Schema.define(version: 2021_02_05_194231) do
 
   create_table "daily_records", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "date"
     t.string "item_name"
     t.integer "item_calories"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "record_id", null: false
+    t.index ["record_id"], name: "index_daily_records_on_record_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "date"
     t.integer "daily_total"
     t.integer "daily_allowance"
     t.datetime "created_at", precision: 6, null: false
@@ -30,4 +37,5 @@ ActiveRecord::Schema.define(version: 2021_02_01_183812) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "daily_records", "records"
 end

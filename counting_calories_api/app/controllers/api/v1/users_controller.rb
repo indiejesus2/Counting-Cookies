@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
 
     def index
         @users = User.all
-        @records = DailyRecord.all
+        @records = Record.all
         render json: UserSerializer.new(@users)
     end
 

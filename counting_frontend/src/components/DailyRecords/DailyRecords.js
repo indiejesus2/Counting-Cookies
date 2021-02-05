@@ -10,7 +10,7 @@ class DailyRecords extends Component {
             <div>
                 <h4>Daily Records</h4>
                 {records.map(record => 
-                    <li key={record.id}>{record.item_name}</li>
+                    <li key={record.id}>{record.date}</li>
                     )}
             </div>
         )

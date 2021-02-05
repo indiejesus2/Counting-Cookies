@@ -9,7 +9,7 @@ class DailyRecordsContainer extends Component {
     render() {
         return (
             <div>
-                <DailyRecords records={this.props.user.daily_records} />
+                <DailyRecords records={this.props.user.records} />
                 <DailyRecordInput user={this.props.user} addRecord={this.props.addRecord} />
             </div>
         )
