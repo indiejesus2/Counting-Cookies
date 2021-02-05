@@ -3,19 +3,17 @@ import {Route, Link} from 'react-router-dom'
 import User from './User'
 
 class Users extends Component {
+    
+    
     render() {
+        const users = this.props.users.map(user => user)
         return(
             <div>
                 <h1>Users</h1>
                 <ul>
-                    {this.props.users.map(user =>
+                    {users.map(user => 
                         <li key={user.id}>
-                            
-                            {/* <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} user={user}/>}/> */}
-
                             <Link to={`/users/${user.id}`} >{user.name}</Link>
-                            {/* <User key={user.id} user={user} /> */}
-                            {/* {user.name} */}
                         </li>
                     )}
                 </ul>

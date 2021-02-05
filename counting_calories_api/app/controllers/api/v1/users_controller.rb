@@ -2,20 +2,21 @@ class Api::V1::UsersController < ApplicationController
 
     def index
         @users = User.all
-        render json: @users
+        @records = DailyRecord.all
+        render json: UserSerializer.new(@users)
     end
 
     def create
         @user = User.new(user_params)
         if @user.save
-            render json: @user
+            render json: UserSerializer.new(@user)
         end
     end
 
-    def show
-        @user = User.find(params[:id])
-        render json: @user
-    end
+    # def show
+    #     @user = User.find(params[:id])
+    #     render json: @user
+    # end
 
     private
 

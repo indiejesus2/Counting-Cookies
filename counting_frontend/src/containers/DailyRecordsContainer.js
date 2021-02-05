@@ -4,9 +4,13 @@ import { connect } from 'react-redux'
 class DailyRecordsContainer extends Component {
 
     render() { 
+
+        const records = this.props.user.daily_records
+        debugger
         return (
             <div>
-                <h1>hey</h1>
+                <h4>Daily Records</h4>
+                
             </div>
         )
     }

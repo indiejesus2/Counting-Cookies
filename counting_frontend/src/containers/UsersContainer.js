@@ -30,7 +30,7 @@ class UsersContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.users.map(user => user.attributes)
     }
 }
 
