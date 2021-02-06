@@ -6,8 +6,18 @@ class UserSerializer
         records = {}
         data.each do |record|
             records[:id] = record.id
-            records[:item_name] = record.daily_allowance
-            records[:item_calories] = record.daily_allowance
+            records[:date] = record.date
+            records[:daily_allowance] = record.daily_allowance
+            records[:daily_total] = record.daily_total
+        end
+    end
+    attribute :days do |record|
+        days = Day.where(record_id: record.id)
+        recs = {}
+        days.each do |day|
+            recs[:id] = day.id
+            recs[:item_name] = day.item_name
+            recs[:item_calories] = day.item_calories
         end
     end
 end

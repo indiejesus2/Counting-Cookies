@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_194231) do
+ActiveRecord::Schema.define(version: 2021_02_06_020131) do
 
-  create_table "daily_records", force: :cascade do |t|
+  create_table "days", force: :cascade do |t|
     t.string "item_name"
     t.integer "item_calories"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "record_id", null: false
-    t.index ["record_id"], name: "index_daily_records_on_record_id"
+    t.index ["record_id"], name: "index_days_on_record_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -37,5 +37,5 @@ ActiveRecord::Schema.define(version: 2021_02_05_194231) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "daily_records", "records"
+  add_foreign_key "days", "records"
 end

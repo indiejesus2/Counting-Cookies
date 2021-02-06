@@ -18,8 +18,7 @@ class Api::V1::RecordsController < ApplicationController
             @record.daily_allowance = @user.target
         else 
             @old_record = @user.daily_records.find_by(date: @record.date)
-            byebug
-            redirect_to edit_api_v1_user_daily_record_path(@old_record.id)
+            redirect_to edit_api_v1_user_record_daily_path(@old_record.id)
         end
     end
 

@@ -1,6 +1,6 @@
 class Record < ApplicationRecord
     belongs_to :user
-    has_many :daily_records
+    has_many :days
     validates :date, uniqueness: true
 
 end
