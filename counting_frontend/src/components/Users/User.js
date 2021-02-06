@@ -15,9 +15,6 @@ class User extends Component {
         // return this.state.value != nextState.value;
     
     render() {
-        
-        debugger 
-
         const user = this.props.users.filter(user => user.id == this.props.match.params.id)[0]
 
         return (
@@ -33,7 +30,6 @@ class User extends Component {
 
 
 const mapStateToProps = state => {
-    debugger
     return {
         records: state.recordsReducer.records.map(record => record.attributes)
     }

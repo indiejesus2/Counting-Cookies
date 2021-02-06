@@ -6,10 +6,8 @@ import {Route, Link} from 'react-router-dom'
 class DailyRecord extends Component {
 
     render() { 
-        debugger
-        const record = this.props.user.records.filter(record => record.id == this.props.match.params.record_id)[0]
-        const days = this.props.user.days.filter(day => day.record_id == this.props.match.params.record_id)
-        debugger
+        const record = this.props.records.filter(record => record.id == this.props.match.params.record_id)[0]
+        const days = record.days
 
         return (
             <div>
