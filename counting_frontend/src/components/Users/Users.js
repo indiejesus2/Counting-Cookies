@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {Route, Link} from 'react-router-dom'
+import {fetchRecords} from '../../actions/fetchRecords'
+
 import User from './User'
 
 class Users extends Component {
     
     
     render() {
-        debugger
         const users = this.props.users.map(user => user)
         return(
             <div>
@@ -14,7 +16,7 @@ class Users extends Component {
                 <ul>
                     {users.map(user => 
                         <li key={user.id}>
-                            <Link to={`/users/${user.id}`} >{user.name}</Link>
+                            <Link to={`/users/${user.id}`} onClick={() => this.props.fetchRecords(user)}>{user.name}</Link>
                         </li>
                     )}
                 </ul>
@@ -23,4 +25,14 @@ class Users extends Component {
     }
 }
 
-export default Users
+const mapStateToProps = state => {
+    return {
+        records: state.recordsReducer.records.map(record => record.attributes)
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    fetchRecords: user => dispatch(fetchRecords(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users)

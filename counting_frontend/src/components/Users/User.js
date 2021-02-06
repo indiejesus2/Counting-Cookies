@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import {fetchRecords} from '../../actions/fetchRecords'
 import DailyRecordsContainer from '../../containers/DailyRecordsContainer';
 
 class User extends Component {
+
+    // shouldComponentUpdate(nextProps, nextState) {
+
+    // componentDidUpdate(prevProps) {
+    //     debugger
+    // }
+        // this.props.fetchRecords(this.props.user)
+        // return this.state.value != nextState.value;
     
     render() {
+        
+        debugger 
 
         const user = this.props.users.filter(user => user.id == this.props.match.params.id)[0]
 
@@ -18,4 +30,16 @@ class User extends Component {
     }
 };
 
-export default User;
+
+
+const mapStateToProps = state => {
+    debugger
+    return {
+        records: state.recordsReducer.records.map(record => record.attributes)
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+})
+export default connect(mapStateToProps, mapDispatchToProps)(User);
+// export default User

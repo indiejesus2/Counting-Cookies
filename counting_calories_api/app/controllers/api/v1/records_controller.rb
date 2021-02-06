@@ -5,16 +5,16 @@ class Api::V1::RecordsController < ApplicationController
 
     def index
         @records = Record.all
-        render json: @records
+        render json: RecordSerializer.new(@records) 
     end
 
     def show
         @record =  Record.find(params[:id])
-        render json: @record
+        render json: RecordSerializer.new(@record)
     end
 
     def new
-        byebug
+        
     end
 
     def create

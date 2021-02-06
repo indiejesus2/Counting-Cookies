@@ -4,6 +4,7 @@ class Record < ApplicationRecord
     validates :date, uniqueness: true
     accepts_nested_attributes_for :days
 
+
     def items(id)
         self.days
     end

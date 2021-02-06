@@ -3,7 +3,8 @@ class Api::V1::UsersController < ApplicationController
     def index
         @users = User.all
         @records = Record.all
-        render json: UserSerializer.new(@users)
+        render json: UserSerializer.new(@users, {include: [:records]})
+        # , {include: [:records]}).serialized_json
     end
 
     def create

@@ -9,6 +9,7 @@ class DailyRecords extends Component {
     render() { 
     
         const records = this.props.records
+        debugger
         return (
             <div>
                 <h4>Daily Records</h4>
