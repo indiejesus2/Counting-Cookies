@@ -9,7 +9,7 @@ export const addRecord = (record) => {
             },
             body: JSON.stringify(record)
         };
-        return fetch(`http://localhost:3000/api/v1/users/${record.user_id}/daily_records`, configObj)
+        return fetch(`http://localhost:3000/api/v1/users/${record.user_id}/records`, configObj)
         .then(resp => resp.json())
         .then(record => dispatch({type: 'ADD_RECORD', payload: record}))
     }

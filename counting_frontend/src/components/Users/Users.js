@@ -6,6 +6,7 @@ class Users extends Component {
     
     
     render() {
+        debugger
         const users = this.props.users.map(user => user)
         return(
             <div>
