@@ -1,6 +1,7 @@
 class Api::V1::RecordsController < ApplicationController
 
     before_action :set_user
+    before_action :set_record, only: [:show, :edit, :update]
     wrap_parameters :record, include: [:user_id, :date, :item_name, :item_calories]
 
     def index
@@ -9,34 +10,28 @@ class Api::V1::RecordsController < ApplicationController
     end
 
     def show
-        @record =  Record.find(params[:id])
         render json: RecordSerializer.new(@record)
-    end
-
-    def new
-        
     end
 
     def create
         @record = @user.records.new(record_params)
         if @record.save
-            @record.daily_allowance = (@user.target - Integer(day_params[:item_calories]))
+            @record.allowance(day_params)
             @record.days.create(day_params)
             @record.save
-            # @record.items(@record.id)
-            # @record.add_items(day_params[:item_name], day_params[:item_calories])
+            render json: RecordSerializer.new(@record)
         else 
             @old_record = @user.records.find_by(date: @record.date)
-            @old_record.days.create(day_params)
-            @old_record.daily_allowance = (@old_record.daily_allowance - Integer(day_params[:item_calories]))
-            @old_record.save
-            byebug
-            # redirect_to edit_api_v1_user_record_day_path(@old_record.id)
+            redirect_to update
         end
     end
-
-    def edit
-        byebug
+    
+    def update
+        @old_record.days.create(day_params)
+        @old_record.allowance(day_params)
+        @old_record.save
+        redirect_to api_v1_user_record_path(@user, @old_record)
+        return
     end
 
     private
@@ -45,8 +40,8 @@ class Api::V1::RecordsController < ApplicationController
         @user = User.find(params[:user_id])
     end
 
-    def set_date
-        @record =  Record.find(params[:id])
+    def set_record
+        @record = Record.find(params[:id])
     end
 
     def record_params
