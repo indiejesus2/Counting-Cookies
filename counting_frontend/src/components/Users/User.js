@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import {fetchRecords} from '../../actions/fetchRecords'
 import DailyRecordsContainer from '../../containers/DailyRecordsContainer';
 
 class User extends Component {
@@ -27,15 +26,4 @@ class User extends Component {
     }
 };
 
-
-
-const mapStateToProps = state => {
-    return {
-        records: state.recordsReducer.records.map(record => record.attributes)
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-})
-export default connect(mapStateToProps, mapDispatchToProps)(User);
-// export default User
+export default User

@@ -10,6 +10,8 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
             return {records: action.payload.data,
                 loading: false
             }
+        case 'ADD_RECORD':
+            return {...state, records: [...state.records, action.payload]}
         default:
             return state
     }

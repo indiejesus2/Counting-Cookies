@@ -7,23 +7,46 @@ class DailyRecordInput extends Component {
         date: "",
         item_name: "",
         item_calories: "",
-        user_id: this.props.user.id
+        user_id: this.props.user.id,
+        record_id: 0
     }
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+    
+    checkRecord(date) {
+        const record = this.props.user.records.filter(record => record.date === date)[0]
+        if(record) {
+            this.setState({
+                record_id: record.id
+            })
+            return true
+        } else {
+            return false
+        }
     }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.addRecord(this.state)
+    
+    clearState() {
         this.setState({
             date: "",
             item_name: "",
             item_calories: ""
         })
+    }
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+        this.checkRecord(this.state.date)
+    }
+
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        if(this.state.record_id === 0) {
+            this.props.addRecord(this.state)
+            this.clearState()
+        } else {
+            this.props.editRecord(this.state)
+            this.clearState()
+        }
     }
 
     render() {

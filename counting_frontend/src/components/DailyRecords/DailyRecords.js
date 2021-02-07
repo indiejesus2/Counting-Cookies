@@ -7,7 +7,7 @@ import DailyRecord from './DailyRecord'
 class DailyRecords extends Component {
 
     render() { 
-    
+        debugger
         const records = this.props.records
         return (
             <div>

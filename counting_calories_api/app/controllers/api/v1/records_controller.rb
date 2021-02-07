@@ -20,18 +20,17 @@ class Api::V1::RecordsController < ApplicationController
             @record.days.create(day_params)
             @record.save
             render json: RecordSerializer.new(@record)
-        else 
-            @old_record = @user.records.find_by(date: @record.date)
-            redirect_to update
         end
+    end
+
+    def edit
     end
     
     def update
-        @old_record.days.create(day_params)
-        @old_record.allowance(day_params)
-        @old_record.save
-        redirect_to api_v1_user_record_path(@user, @old_record)
-        return
+        @record.days.create(day_params)
+        @record.allowance(day_params)
+        @record.save
+        render json: RecordSerializer.new(@record)
     end
 
     private
