@@ -7,7 +7,6 @@ import DailyRecord from './DailyRecord'
 class DailyRecords extends Component {
 
     render() { 
-        debugger
         const records = this.props.records.filter(record => record.user_id === this.props.user.id)
         return (
             <div>

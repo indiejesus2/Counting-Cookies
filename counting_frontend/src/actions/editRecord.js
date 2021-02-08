@@ -10,6 +10,6 @@ export const editRecord = (record) => {
         };
         return fetch(`http://localhost:3000/api/v1/users/${record.user_id}/records/${record.record_id}`, configObj)
         .then(resp => resp.json())
-        .then(record => dispatch({type: 'ADD_RECORD', payload: record}))
+        .then(record => dispatch({type: 'EDIT_RECORD', payload: record}))
     }
 }

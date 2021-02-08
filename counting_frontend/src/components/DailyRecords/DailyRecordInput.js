@@ -17,10 +17,8 @@ class DailyRecordInput extends Component {
             this.setState({
                 record_id: record.id
             })
-            return true
-        } else {
-            return false
         }
+        debugger
     }
     
     clearState() {

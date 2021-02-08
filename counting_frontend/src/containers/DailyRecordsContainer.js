@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
+import {fetchUsers} from '../actions/fetchUsers'
 import {fetchRecords} from '../actions/fetchRecords'
 import {addRecord} from '../actions/addRecord'
 import {editRecord} from '../actions/editRecord'
@@ -10,20 +11,13 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     if (this.props == nextProps) {
-    //         debugger
-    //         return true
-    //     } else {
-    //         debugger
-    //         this.props.fetchRecords(this.props.user)
-    //     }
-    // }
-    // componentDidUpdate(prevProps, prevState) {
-    //     // if (this.props.records != prevProps.records) {
-    //     //     this.props.fetchRecords(this.props.user)
-    //     // }
-    // }
+    componentDidUpdate(prevProps, prevState){
+        if(this.props.records.length !== prevProps.records.length) {
+            debugger
+            this.props.fetchUsers()
+            this.props.fetchRecords(this.props.user)
+        }
+    }
 
     render() {
         return (
@@ -38,11 +32,13 @@ class DailyRecordsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
+        users: state.usersReducer.users.map(user => user.attributes),
         records: state.recordsReducer.records.map(record => record.attributes)
     }
 }
 
 const mapDispatchToProps = dispatch => ({
+    fetchUsers: () => dispatch(fetchUsers()),
     addRecord: record => dispatch(addRecord(record)),
     fetchRecords: user => dispatch(fetchRecords(user)),
     editRecord: record => dispatch(editRecord(record))

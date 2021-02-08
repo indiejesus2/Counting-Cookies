@@ -36,7 +36,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
-
     addUser: user => dispatch(addUser(user))
 })
 

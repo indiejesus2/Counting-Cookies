@@ -4,15 +4,7 @@ import { Redirect } from 'react-router-dom'
 import DailyRecordsContainer from '../../containers/DailyRecordsContainer';
 
 class User extends Component {
-
-    // shouldComponentUpdate(nextProps, nextState) {
-
-    // componentDidUpdate(prevProps) {
-    //     debugger
-    // }
-        // this.props.fetchRecords(this.props.user)
-        // return this.state.value != nextState.value;
-    
+  
     render() {
         const user = this.props.users.filter(user => user.id == this.props.match.params.id)[0]
 
