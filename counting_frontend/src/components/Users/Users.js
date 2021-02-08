@@ -6,8 +6,7 @@ import {fetchRecords} from '../../actions/fetchRecords'
 import User from './User'
 
 class Users extends Component {
-    
-    
+
     render() {
         const users = this.props.users.map(user => user)
         return(
@@ -26,6 +25,7 @@ class Users extends Component {
 }
 
 const mapStateToProps = state => {
+    debugger
     return {
         records: state.recordsReducer.records.map(record => record.attributes)
     }

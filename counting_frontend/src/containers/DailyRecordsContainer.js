@@ -10,18 +10,20 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    componentDidUpdate(prevProps) {
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if (this.props == nextProps) {
+    //         debugger
+    //         return true
+    //     } else {
+    //         debugger
+    //         this.props.fetchRecords(this.props.user)
+    //     }
+    // }
+    componentDidUpdate(prevProps, prevState) {
         debugger
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props == nextProps) {
-            debugger
-            return true
-        } else {
-            debugger
-            this.props.fetchRecords(this.props.user)
-        }
+        // if (this.props.records != prevProps.records) {
+        //     this.props.fetchRecords(this.props.user)
+        // }
     }
 
     render() {
@@ -36,6 +38,7 @@ class DailyRecordsContainer extends Component {
 }
 
 const mapStateToProps = state => {
+    debugger
     return {
         records: state.recordsReducer.records.map(record => record.attributes)
     }

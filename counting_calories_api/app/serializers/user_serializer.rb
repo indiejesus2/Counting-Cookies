@@ -2,7 +2,7 @@ class UserSerializer
     include FastJsonapi::ObjectSerializer
     attributes :id, :name, :target
     has_many :records
-    has_many :days, through: :records
+    # has_many :days, through: :records
     attribute :records do |user|
         data = Record.where(user_id: user.id)
         records = {}

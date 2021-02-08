@@ -11,7 +11,23 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
                 loading: false
             }
         case 'ADD_RECORD':
-            return {...state, records: [...state.records, action.payload]}
+            let records = state.records.map(record => {
+                if (record.id === action.payload.id) {
+                    return action.payload.data
+                } else {
+                    return record
+                }
+            })
+            return {...state, records: records}
+        case 'EDIT_RECORD':
+            let records = state.records.map(record => {
+                if (record.id === action.payload.id) {
+                    return action.payload.data
+                } else {
+                    return record
+                }
+            })
+            return {...state, records: records}
         default:
             return state
     }
