@@ -24,15 +24,15 @@ class Users extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    debugger
-    return {
-        records: state.recordsReducer.records.map(record => record.attributes)
-    }
-}
+// const mapStateToProps = state => {
+//     debugger
+//     return {
+//         records: state.recordsReducer.records.map(record => record.attributes)
+//     }
+// }
 
 const mapDispatchToProps = dispatch => ({
     fetchRecords: user => dispatch(fetchRecords(user))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users)
+export default connect(null, mapDispatchToProps)(Users)

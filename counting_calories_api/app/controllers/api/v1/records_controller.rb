@@ -5,7 +5,7 @@ class Api::V1::RecordsController < ApplicationController
     wrap_parameters :record, include: [:user_id, :date, :item_name, :item_calories]
 
     def index
-        @records = Record.all
+        @records = @user.records.all
         render json: RecordSerializer.new(@records) 
     end
 
@@ -15,7 +15,8 @@ class Api::V1::RecordsController < ApplicationController
 
     def create
         @record = @user.records.new(record_params)
-        if @record.save
+        if @record.checkDate(record_params)
+            @record.save
             @record.allowance(day_params)
             @record.days.create(day_params)
             @record.save

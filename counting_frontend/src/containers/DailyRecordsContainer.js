@@ -19,26 +19,24 @@ class DailyRecordsContainer extends Component {
     //         this.props.fetchRecords(this.props.user)
     //     }
     // }
-    componentDidUpdate(prevProps, prevState) {
-        debugger
-        // if (this.props.records != prevProps.records) {
-        //     this.props.fetchRecords(this.props.user)
-        // }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     // if (this.props.records != prevProps.records) {
+    //     //     this.props.fetchRecords(this.props.user)
+    //     // }
+    // }
 
     render() {
         return (
             <div>
                 <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records}/>}/>
                 <DailyRecordInput user={this.props.user} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
-                <DailyRecords records={this.props.records} />
+                <DailyRecords records={this.props.records} user={this.props.user}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    debugger
     return {
         records: state.recordsReducer.records.map(record => record.attributes)
     }

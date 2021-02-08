@@ -1,7 +1,7 @@
 class Record < ApplicationRecord
     belongs_to :user
     has_many :days
-    validates :date, uniqueness: true
+    # validates :date, uniqueness: true
     accepts_nested_attributes_for :days
 
     def allowance(params)
@@ -13,6 +13,16 @@ class Record < ApplicationRecord
             self.daily_allowance = self.daily_allowance - item
         end
         self.daily_total = self.daily_total + item
+    end
+
+    def checkDate(params)
+        user = User.find_by_id(params[:user_id])
+        if user.records.find_by(date: params[:date])
+            false
+        else
+            self.save
+            true
+        end
     end
     
 end
