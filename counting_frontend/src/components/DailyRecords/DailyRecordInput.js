@@ -12,7 +12,7 @@ class DailyRecordInput extends Component {
     }
     
     checkRecord(date) {
-        const record = this.props.user.records.filter(record => record.date === date)[0]
+        const record = this.props.records.filter(record => record.date === date)[0]
         if(record) {
             this.setState({
                 record_id: record.id
@@ -54,9 +54,9 @@ class DailyRecordInput extends Component {
                     <label>Date: </label>
                     <input type="date" value={this.state.date} name="date" onChange={this.handleChange}/>
                     <label>Item Name: </label>
-                    <input type="text" value={this.state.target} name="item_name" onChange={this.handleChange}/>
+                    <input type="text" value={this.state.item_name} name="item_name" onChange={this.handleChange}/>
                     <label>Item Calories: </label>
-                    <input type="text" value={this.state.target} name="item_calories" onChange={this.handleChange}/>
+                    <input type="text" value={this.state.item_calories} name="item_calories" onChange={this.handleChange}/>
                     <input type="submit"/>
                 </form>
             </div>

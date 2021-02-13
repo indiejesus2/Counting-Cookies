@@ -1,7 +1,7 @@
 class Api::V1::RecordsController < ApplicationController
 
     before_action :set_user
-    before_action :set_record, only: [:show, :edit, :update]
+    before_action :set_record, only: [:show, :edit, :update, :destroy]
     wrap_parameters :record, include: [:user_id, :date, :item_name, :item_calories]
 
     def index
@@ -32,6 +32,14 @@ class Api::V1::RecordsController < ApplicationController
         @record.allowance(day_params)
         @record.save
         render json: RecordSerializer.new(@record)
+    end
+
+    def destroy
+        @record.days.each do |day|
+            day.destroy
+        end
+        @record.destroy
+        render json: RecordSerializer.new(@user.records)
     end
 
     private

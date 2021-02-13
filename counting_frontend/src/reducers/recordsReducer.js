@@ -14,6 +14,8 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
             return {...state, records: [...state.records, action.payload.data]}
         case 'EDIT_RECORD':
             return {...state, records: [...state.records, action.payload.data]}
+        case 'DELETE_RECORD':
+            return {...state, records: action.payload.data}
         default:
             return state
     }
