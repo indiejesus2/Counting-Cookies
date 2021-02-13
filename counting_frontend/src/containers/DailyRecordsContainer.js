@@ -13,6 +13,7 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 class DailyRecordsContainer extends Component {
 
     componentDidUpdate(prevProps){
+        debugger
         if(this.props.records.length !== prevProps.records.length) {
             this.props.fetchRecords(this.props.user)
         }

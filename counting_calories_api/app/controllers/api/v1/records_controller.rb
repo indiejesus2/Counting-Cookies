@@ -17,8 +17,8 @@ class Api::V1::RecordsController < ApplicationController
         @record = @user.records.new(record_params)
         if @record.checkDate(record_params)
             @record.save
-            @record.allowance(day_params)
             @record.days.create(day_params)
+            @record.allowance
             @record.save
             render json: RecordSerializer.new(@record)
         end
@@ -29,7 +29,7 @@ class Api::V1::RecordsController < ApplicationController
     
     def update
         @record.days.create(day_params)
-        @record.allowance(day_params)
+        @record.allowance
         @record.save
         render json: RecordSerializer.new(@record)
     end
