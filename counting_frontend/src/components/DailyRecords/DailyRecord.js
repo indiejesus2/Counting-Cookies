@@ -9,7 +9,7 @@ class DailyRecord extends Component {
     }
 
     handleItemClick = (item) => {
-        this.props.deleteItem(item)
+        this.props.deleteItem(item, this.props.user.id)
     }
 
     render() { 
