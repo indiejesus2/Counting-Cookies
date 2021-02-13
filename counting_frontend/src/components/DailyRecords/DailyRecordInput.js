@@ -18,7 +18,6 @@ class DailyRecordInput extends Component {
                 record_id: record.id
             })
         }
-        debugger
     }
     
     clearState() {

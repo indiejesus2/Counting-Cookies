@@ -7,6 +7,11 @@ class DailyRecord extends Component {
         this.props.deleteRecord(record)
         this.props.history.push(`/users/${this.props.user.id}`)
     }
+
+    handleItemClick = (item) => {
+        this.props.deleteItem(item)
+    }
+
     render() { 
 
         const record = this.props.records.filter(record => record.id == this.props.match.params.record_id)[0]
@@ -14,12 +19,13 @@ class DailyRecord extends Component {
         return (
             <div>
                 <h1>{record.date}</h1>
+                <button onClick={() => {this.handleClick(record)} }>Delete Day</button>
                 <h3>Daily Total: {record.daily_total}</h3>
                 <h3>Daily Allowance: {record.daily_allowance}</h3>
-                <button onClick={() => {this.handleClick(record)} }>Delete Day</button>
                 {days.map(day => 
                     <li key={day.id}>
                         {day.item_name} - {day.item_calories}
+                        <button onClick={() => {this.handleItemClick(day)} }>X</button>
                     </li>
                     )}
             </div>
