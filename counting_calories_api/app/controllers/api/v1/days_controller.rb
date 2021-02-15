@@ -9,7 +9,6 @@ class Api::V1::DaysController < ApplicationController
         render json: RecordSerializer.new(@record)
     end
 
-
     private
 
     def set_date

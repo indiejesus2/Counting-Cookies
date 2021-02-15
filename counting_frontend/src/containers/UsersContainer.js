@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
 import {fetchUsers} from '../actions/fetchUsers'
-
 import {addUser} from '../actions/addUser'
 import UserInput from '../components/Users/UserInput'
 import Users from '../components/Users/Users'

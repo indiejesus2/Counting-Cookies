@@ -24,9 +24,6 @@ class Api::V1::RecordsController < ApplicationController
         end
     end
 
-    def edit
-    end
-    
     def update
         @record.days.create(day_params)
         @record.allowance
