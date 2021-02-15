@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import Form from 'react-bootstrap/Form'
 
 class DailyRecordInput extends Component {
 
@@ -53,15 +53,32 @@ class DailyRecordInput extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Date: </label>
-                    <input type="date" value={this.state.date} name="date" onChange={this.handleChange}/>
-                    <label>Item Name: </label>
-                    <input type="text" value={this.state.item_name} name="item_name" onChange={this.handleChange}/>
-                    <label>Item Calories: </label>
-                    <input type="text" value={this.state.item_calories} name="item_calories" onChange={this.handleChange}/>
-                    <input type="submit"/>
-                </form>
+                <br/>
+                <Form onSubmit={this.handleSubmit} inline>
+                    <Form.Label>Date:</Form.Label>
+                    <Form.Control 
+                        type="date"
+                        className="mb-2 mr-sm-2" 
+                        id="inlineFormInputName2"
+                        value={this.state.date} 
+                        name="date" 
+                        onChange={this.handleChange}/>
+                    <Form.Label>Item Name:</Form.Label>
+                    <Form.Control 
+                        className="mb-2 mr-sm-2" 
+                        id="inlineFormInputName2"
+                        value={this.state.item_name} 
+                        name="item_name" 
+                        onChange={this.handleChange}/>
+                    <Form.Label>Item Calories:</Form.Label>
+                    <Form.Control 
+                        className="mb-2 mr-sm-2" 
+                        id="inlineFormInputName2"
+                        value={this.state.item_calories} 
+                        name="item_calories" 
+                        onChange={this.handleChange}/>
+                    <Form.Control type="submit" className="mb-2"/>
+                </Form>
             </div>
         )
     }

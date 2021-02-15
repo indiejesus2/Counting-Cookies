@@ -4,7 +4,6 @@ class Api::V1::UsersController < ApplicationController
         @users = User.all
         @records = Record.all
         render json: UserSerializer.new(@users)
-        # , {include: [:records]}).serialized_json
     end
 
     def create
@@ -14,10 +13,7 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    # def show
-    #     @user = User.find(params[:id])
-    #     render json: @user
-    # end
+    
 
     private
 
