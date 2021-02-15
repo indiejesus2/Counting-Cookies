@@ -9,6 +9,7 @@ class Users extends Component {
 
     render() {
         const users = this.props.users.map(user => user)
+
         return(
             <div>
                 <h1>Users</h1>

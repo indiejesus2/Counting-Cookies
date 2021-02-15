@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Route, Switch} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import {fetchRecords} from '../actions/fetchRecords'
 import {addRecord} from '../actions/addRecord'
 import {editRecord} from '../actions/editRecord'
 import {deleteRecord} from '../actions/deleteRecord'
 import {deleteItem} from '../actions/deleteItem'
+import Spinner from 'react-bootstrap/Spinner'
+
 import DailyRecord from '../components/DailyRecords/DailyRecord'
 import DailyRecordInput from '../components/DailyRecords/DailyRecordInput'
 import DailyRecords from '../components/DailyRecords/DailyRecords'
@@ -13,26 +15,33 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 class DailyRecordsContainer extends Component {
 
     componentDidUpdate(prevProps){
-        debugger
         if(this.props.records.length !== prevProps.records.length) {
             this.props.fetchRecords(this.props.user)
         }
     }
 
     render() {
-        return (
-            <div>
-                <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
-                <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
-                <DailyRecords records={this.props.records} user={this.props.user}/>
-            </div>
-        )
+        if (this.props.loading === false) {
+            return (
+                <div>
+                    <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
+                    <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
+                    <DailyRecords records={this.props.records} user={this.props.user}/>
+                </div>
+            )
+        } else {
+            return (
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+        )}
     }
 }
 
 const mapStateToProps = state => {
     return {
-        records: state.recordsReducer.records.map(record => record.attributes)
+        records: state.recordsReducer.records.map(record => record.attributes),
+        loading: state.recordsReducer.loading
     }
 }
 
