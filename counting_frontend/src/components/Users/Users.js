@@ -1,18 +1,13 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React  from 'react'
 import {Link} from 'react-router-dom'
-import {fetchRecords} from '../../actions/fetchRecords'
 
-class Users extends Component {
-
-    render() {
-        const users = this.props.users.map(user => user)
+const Users = props => {
 
         return(
             <div>
                 <h1>Users</h1>
                 <ul>
-                    {users.map(user => 
+                    {props.users.map(user => 
                         <li key={user.id}>
                             <Link to={`/users/${user.id}`}>{user.name}</Link>
                         </li>
@@ -20,11 +15,6 @@ class Users extends Component {
                 </ul>
             </div>
         )
-    }
 }
 
-const mapDispatchToProps = dispatch => ({
-    fetchRecords: user => dispatch(fetchRecords(user))
-})
-
-export default connect(null, mapDispatchToProps)(Users)
+export default Users
