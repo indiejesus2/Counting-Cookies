@@ -7,17 +7,14 @@ import {editRecord} from '../actions/editRecord'
 import {deleteRecord} from '../actions/deleteRecord'
 import {deleteItem} from '../actions/deleteItem'
 import Spinner from 'react-bootstrap/Spinner'
-
 import DailyRecord from '../components/DailyRecords/DailyRecord'
 import DailyRecordInput from '../components/DailyRecords/DailyRecordInput'
 import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    componentDidUpdate(prevProps){
-        if(this.props.records.length !== prevProps.records.length) {
-            this.props.fetchRecords(this.props.user)
-        }
+    componentDidMount() {
+        this.props.fetchRecords(this.props.user)
     }
 
     render() {
@@ -26,7 +23,7 @@ class DailyRecordsContainer extends Component {
                 <div>
                     <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
                     <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
-                    <DailyRecords records={this.props.records} user={this.props.user}/>
+                    <DailyRecords records={this.props.records}/>
                 </div>
             )
         } else {

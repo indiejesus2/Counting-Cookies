@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {fetchRecords} from '../../actions/fetchRecords'
-
-import User from './User'
 
 class Users extends Component {
 
@@ -16,7 +14,7 @@ class Users extends Component {
                 <ul>
                     {users.map(user => 
                         <li key={user.id}>
-                            <Link to={`/users/${user.id}`} onClick={() => this.props.fetchRecords(user)}>{user.name}</Link>
+                            <Link to={`/users/${user.id}`}>{user.name}</Link>
                         </li>
                     )}
                 </ul>

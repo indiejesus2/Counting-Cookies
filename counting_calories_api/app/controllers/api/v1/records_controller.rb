@@ -5,8 +5,7 @@ class Api::V1::RecordsController < ApplicationController
     wrap_parameters :record, include: [:user_id, :date, :item_name, :item_calories]
 
     def index
-        @records = @user.records.all
-        render json: RecordSerializer.new(@records) 
+        render json: RecordSerializer.new(@user.records) 
     end
 
     def show
