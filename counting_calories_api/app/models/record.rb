@@ -1,7 +1,7 @@
 class Record < ApplicationRecord
     belongs_to :user
     has_many :days
-    # validates :date, uniqueness: true
+    validates :date, presence: true
     accepts_nested_attributes_for :days
 
     def allowance

@@ -15,11 +15,14 @@ class Api::V1::RecordsController < ApplicationController
     def create
         @record = @user.records.new(record_params)
         if @record.checkDate(record_params)
-            @record.save
-            @record.days.create(day_params)
-            @record.allowance
-            @record.save
-            render json: RecordSerializer.new(@record)
+            if @record.save
+                @record.days.create(day_params)
+                @record.allowance
+                @record.save
+                render json: RecordSerializer.new(@record)
+            else 
+                render json: {error: "Must include date"}
+            end
         end
     end
 
