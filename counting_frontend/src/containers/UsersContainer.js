@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 import {fetchUsers} from '../actions/fetchUsers'
 import {addUser} from '../actions/addUser'
 import Spinner from 'react-bootstrap/Spinner'
@@ -22,6 +22,7 @@ class UsersContainer extends Component {
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
                         <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} records={this.props.records} />}/>
                         <Route direct path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} />}/>
+                        <Route direct path='/'><Redirect to="/users" /></Route>
                     </Switch>
                 </div>
             )

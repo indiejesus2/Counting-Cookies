@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Users = props => {
 
+        debugger 
         return(
             <div>
                 <h1>Users</h1>
