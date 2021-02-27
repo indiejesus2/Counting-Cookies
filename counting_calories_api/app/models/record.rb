@@ -3,7 +3,12 @@ class Record < ApplicationRecord
     has_many :days
     validates :date, presence: true
     accepts_nested_attributes_for :days
+    # before_save :set_vote
 
+    # def set_vote
+    #     self.vote = 0
+    # end
+    
     def allowance
         items = self.days.map{|day| day.item_calories}
         self.daily_allowance = user.target - items.sum

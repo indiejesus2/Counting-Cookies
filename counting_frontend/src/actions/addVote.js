@@ -1,5 +1,4 @@
-export const editRecord = (record) => {
-    debugger
+export const addVote = (record) => {
     return (dispatch) => {
         const configObj = {
             method: "PATCH",

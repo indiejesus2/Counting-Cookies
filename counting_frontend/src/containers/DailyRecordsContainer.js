@@ -23,7 +23,7 @@ class DailyRecordsContainer extends Component {
                 <div>
                     <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
                     <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
-                    <DailyRecords records={this.props.records}/>
+                    <DailyRecords records={this.props.records} editRecord={this.props.editRecord}/>
                 </div>
             )
         } else {
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     addRecord: record => dispatch(addRecord(record)),
     fetchRecords: user => dispatch(fetchRecords(user)),
-    editRecord: record => dispatch(editRecord(record)),
+    editRecord: (record, vote) => dispatch(editRecord(record, vote)),
     deleteRecord: record => dispatch(deleteRecord(record)),
     deleteItem: (item, user_id) => dispatch(deleteItem(item, user_id))
 })

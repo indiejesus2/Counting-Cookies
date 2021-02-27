@@ -1,6 +1,6 @@
 class RecordSerializer
     include FastJsonapi::ObjectSerializer
-    attributes :id, :date, :daily_allowance, :daily_total, :user_id
+    attributes :id, :date, :daily_allowance, :daily_total, :user_id, :vote
     has_many :days
     attribute :days do |record|
         days = Day.where(record_id: record.id)

@@ -8,18 +8,15 @@ class DailyRecordInput extends Component {
         item_name: "",
         item_calories: "",
         user_id: this.props.user.id,
-        record_id: 0
+        id: 0,
+        vote: 0
     }
     
     checkRecord(date) {
         const record = this.props.records.filter(record => record.date === date)[0]
         if(record) {
             this.setState({
-                record_id: record.id
-            })
-        } else {
-            this.setState({
-                record_id: 0
+                id: record.id
             })
         }
     }
@@ -41,7 +38,7 @@ class DailyRecordInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        if(this.state.record_id === 0) {
+        if(this.state.id === 0) {
             this.props.addRecord(this.state)
             this.clearState()
         } else {

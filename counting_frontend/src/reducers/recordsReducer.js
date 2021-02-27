@@ -15,6 +15,7 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
                 alert(action.payload.error)
                 return state
             } else {
+                debugger
                 return {...state, records: [...state.records, action.payload.data]}
             }
         case 'EDIT_RECORD':

@@ -6,12 +6,10 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import thunk from 'redux-thunk';
 import usersReducer from './reducers/usersReducer'
 import recordsReducer from './reducers/recordsReducer'
-import {combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Nav from 'react-bootstrap/Nav'
-
-// import './index.css';
 import App from './App';
 
 const rootReducer = combineReducers({
