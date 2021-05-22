@@ -22,8 +22,8 @@ class DailyRecordsContainer extends Component {
             return (
                 <div>
                     <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
-                    <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
                     <DailyRecords records={this.props.records} editRecord={this.props.editRecord}/>
+                    <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
                 </div>
             )
         } else {

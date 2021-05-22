@@ -8,6 +8,7 @@ import usersReducer from './reducers/usersReducer'
 import recordsReducer from './reducers/recordsReducer'
 import { combineReducers } from 'redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Nav from 'react-bootstrap/Nav'
 import App from './App';

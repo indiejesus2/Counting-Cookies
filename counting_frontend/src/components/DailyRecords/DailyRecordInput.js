@@ -51,8 +51,8 @@ class DailyRecordInput extends Component {
         return (
             <div>
                 <br/>
-                <Form onSubmit={this.handleSubmit} inline>
-                    <Form.Label>Date:</Form.Label>
+                <Form onSubmit={this.handleSubmit} >
+                    <Form.Label>Date: </Form.Label>
                     <Form.Control 
                         type="date"
                         className="mb-2 mr-sm-2" 
@@ -60,14 +60,14 @@ class DailyRecordInput extends Component {
                         value={this.state.date} 
                         name="date" 
                         onChange={this.handleChange}/>
-                    <Form.Label>Item Name:</Form.Label>
+                    <Form.Label>Item Name: </Form.Label>
                     <Form.Control 
                         className="mb-2 mr-sm-2" 
                         id="inlineFormInputName2"
                         value={this.state.item_name} 
                         name="item_name" 
                         onChange={this.handleChange}/>
-                    <Form.Label>Item Calories:</Form.Label>
+                    <Form.Label>Item Calories: </Form.Label>
                     <Form.Control 
                         className="mb-2 mr-sm-2" 
                         id="inlineFormInputName2"

@@ -21,6 +21,7 @@ import {addVote} from '../../actions/addVote'
     const sorted = props.records.sort((a,b) => (b.vote > a.vote) ? 1 : -1)
         return (
             <div>
+                <br />
                 <h4>Daily Records</h4>
                 {sorted.map(record => 
                     <li id={record.id} key={record.id}>
