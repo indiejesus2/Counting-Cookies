@@ -5,7 +5,9 @@ class Api::V1::RecordsController < ApplicationController
     wrap_parameters :record, include: [:user_id, :date, :vote, :item_name, :item_calories]
 
     def index
-        render json: RecordSerializer.new(@user.records) 
+        if (@user.records)
+            render json: RecordSerializer.new(@user.records) 
+        end
     end
 
     def show
@@ -32,7 +34,6 @@ class Api::V1::RecordsController < ApplicationController
             @record.save
             render json: RecordSerializer.new(@record)
         elsif (!!params[:item_name])
-            byebug
             @record.days.create(day_params)
             @record.allowance
             @record.save
