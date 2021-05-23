@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "counting_frontend"
+		},
+		{
+			"path": "counting_calories_api"
+		}
+	],
+	"settings": {}
+}

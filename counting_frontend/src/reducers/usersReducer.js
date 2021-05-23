@@ -13,9 +13,7 @@ export default function usersReducer(state = {users: [], loading: false}, action
         case 'ADD_USER':
             return {...state, users: [...state.users, action.payload]}
         case 'LOGIN_USER':
-            return {users: action.payload.data,
-                loading: false
-            }
+            return {...state, users: [...state.users, action.payload.data]}
         default:
             return state
     }
