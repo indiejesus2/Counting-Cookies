@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import UsersContainer from './containers/UsersContainer';
+import LoginContainer from './containers/LoginContainer';
 
 
 class App extends Component {
   render() {
     return (
-      <UsersContainer />
+      <LoginContainer />
     )
   }
 }

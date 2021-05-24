@@ -4,8 +4,7 @@ import DailyRecordsContainer from '../../containers/DailyRecordsContainer';
 class User extends Component {
   
     render() {
-        const user = this.props.users.filter(user => user.id == this.props.match.params.id)[0]
-
+        const user = this.props.user.attributes
         return (
             <div key={user.id}>
                 <h1>{user.name}</h1>

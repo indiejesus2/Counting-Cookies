@@ -16,10 +16,12 @@ class Login extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.loginUser(this.state)
+        this.props.history.push('/users')
         this.setState({
             username: '',
             password: ''
         })
+        
     }
 
     render() {

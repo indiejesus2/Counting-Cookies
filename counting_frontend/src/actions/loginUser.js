@@ -8,7 +8,7 @@ export const loginUser = (user) => {
             },
             body: JSON.stringify(user)
         }
-        return fetch(`http://localhost:3000/api/v1/users/`, configObj)
+        return fetch(`http://localhost:3000/sessions/`, configObj)
         .then(resp => resp.json())
         .then(user => dispatch({
             type: 'LOGIN_USER',
