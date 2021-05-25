@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import {loginUser} from '../actions/loginUser'
+import {signoutUser} from '../actions/signoutUser'
 import {addUser} from '../actions/addUser'
 import Spinner from 'react-bootstrap/Spinner'
-import Login from '../components/Users/Login'
+import SignIn from '../components/Login/SignIn'
+import SignOut from '../components/Login/SignOut'
 import UserInput from '../components/Users/UserInput'
 import UsersContainer from './UsersContainer'
 import Jumbotron from 'react-bootstrap/Jumbotron'
@@ -34,8 +36,9 @@ class LoginContainer extends Component {
               </Jumbotron>
                     <Switch>
                     <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
-                        <Route direct path='/login' render={(routerProps) => <Login {...routerProps} loginUser={this.props.loginUser} />}/>
-                        <Route direct path='/'><Redirect to="/login" /></Route>
+                        <Route direct path='/signin' render={(routerProps) => <SignIn {...routerProps} loginUser={this.props.loginUser} />}/>
+                        <Route direct path='/signout' render={(routerProps) => <SignOut {...routerProps} user={this.props.user} signoutUser={this.props.signoutUser} />}/>
+                        <Route direct path='/'><Redirect to="/signin" /></Route>
                     </Switch>
                 </div>
                 // <Spinner animation="border" role="status">
@@ -53,7 +56,8 @@ class LoginContainer extends Component {
     }
 
     const mapDispatchToProps = dispatch => ({
-        loginUser: user => dispatch(loginUser(user))
+        loginUser: user => dispatch(loginUser(user)),
+        addUser: user => dispatch(addUser(user))
     })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)

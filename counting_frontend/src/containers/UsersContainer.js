@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import UserInput from '../components/Users/UserInput'
 import Users from '../components/Users/Users'
 import User from '../components/Users/User'
-import Login from '../components/Users/Login'
+import Login from '../components/Login/SignIn'
 
 class UsersContainer extends Component {
     
@@ -24,7 +24,7 @@ class UsersContainer extends Component {
                         {/* <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} records={this.props.records} />}/> */}
                         <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
                         {/* <Route direct path='/login' render={(routerProps) => <Login {...routerProps} loginUser={this.props.loginUser} />}/> */}
-                        <Route direct path='/login'><Redirect to="/users" /></Route>
+                        <Route direct path='/signin'><Redirect to="/users" /></Route>
                     </Switch>
                 </div>
             )

@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        session.clear
+    end
+
     def user_params
         params.require(:user).permit(:name, :target, :username, :password)
     end
