@@ -8,6 +8,7 @@ export const addUser = (user) => {
             },
             body: JSON.stringify(user)
         };
+        dispatch({type: 'LOADING_USERS'})
         return fetch('http://localhost:3000/api/v1/users', configObj)
         .then(response => response.json())
         .then(user => dispatch({type: 'ADD_USER', payload: user}))

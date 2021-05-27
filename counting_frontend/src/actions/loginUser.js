@@ -8,6 +8,7 @@ export const loginUser = (user) => {
             },
             body: JSON.stringify(user)
         }
+        dispatch({type: 'FETCH_USER'})
         return fetch(`http://localhost:3000/sessions/`, configObj)
         .then(resp => resp.json())
         .then(user => dispatch({
