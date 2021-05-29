@@ -12,6 +12,11 @@ export default function loginReducer(state = {user: [], loggedIn: false, loading
             return {user: [],
                 loggedIn: false
             }
+        case 'SIGNUP_USER':
+            return {user: action.payload.data,
+                loggedIn: true,
+                loading: false
+            }
         default:
             return state
     }
