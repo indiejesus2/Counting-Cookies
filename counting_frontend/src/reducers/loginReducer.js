@@ -4,6 +4,7 @@ export default function loginReducer(state = {user: [], loggedIn: false, loading
         case 'FETCH_USER':
             return {loading: true}
         case 'LOGIN_USER':
+            debugger
             return {user: action.payload.data,
                 loggedIn: true,
                 loading: false

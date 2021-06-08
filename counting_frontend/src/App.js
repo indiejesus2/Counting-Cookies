@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import LoginContainer from './containers/LoginContainer';
 
+// function setToken(userToken) {
+//   sessionStorage.setItem('token', JSON.stringify(userToken));
+// }
 
-class App extends Component {
-  render() {
-    return (
+
+function App() {
+  // if(!token) {
+  //   return <LoginContainer setToken={setToken} />
+  // }
+    
+  return (
       <LoginContainer />
     )
-  }
 }
 
 export default App;
