@@ -7,12 +7,14 @@ import LoginContainer from './containers/LoginContainer';
 
 
 function App() {
+
+  const [session, setSession] = useState(null)
   // if(!token) {
   //   return <LoginContainer setToken={setToken} />
   // }
-    
+  // debugger
   return (
-      <LoginContainer />
+      <LoginContainer setSession={setSession}/>
     )
 }
 
