@@ -8,7 +8,7 @@ import LoginContainer from './containers/LoginContainer';
 
 function App() {
 
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(false)
   // if(!token) {
   //   return <LoginContainer setToken={setToken} />
   // }
@@ -19,3 +19,5 @@ function App() {
 }
 
 export default App;
+
+

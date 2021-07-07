@@ -1,43 +1,38 @@
+
 // import React, { Component } from 'react';
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import {loginUser} from '../../actions/loginUser'
 
 
-export default class SignIn extends Component {
+export default function SignIn(props) {
 
-    state = {
-        username: '',
-        password: '',
-    }
+    debugger
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    let history = useHistory();
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
-        debugger
         // const token = 
-        this.props.loginUser(this.state)
+        let state = {username: username, password: password}
+        loginUser(state)
+        props.setSession(true)
         // this.props.setToken(token);
-        this.props.history.push('/users')
+        history.replace('/users')
+        setUsername('')
+        setPassword('')
     }
-
-    render() {
 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <label>Username: </label>
-                    <input type="text" name="username" id="username" onChange={this.handleChange}/>
+                    <input type="text" name="username" id="username" onChange={e => setUsername(e.target.value)}/>
                     <label>Password: </label>
-                    <input type="password" name="password" id="password" onChange={this.handleChange}/>
+                    <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)}/>
                     <input type="submit"/>
                 </form>
             </div>
         )
     }
-}
