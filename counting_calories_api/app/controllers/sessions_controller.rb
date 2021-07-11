@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: user_params[:username])
         if @user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
-            byebug
             render json: UserSerializer.new(@user)
         else
             render json: {error: "Incorrect Username/Password"}

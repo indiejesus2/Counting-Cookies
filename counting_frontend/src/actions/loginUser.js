@@ -1,5 +1,4 @@
 export const loginUser = (user) => {
-    debugger
     return (dispatch) => {
         const configObj = {
             method: "POST",
