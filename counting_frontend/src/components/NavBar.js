@@ -15,7 +15,7 @@ class NavBar extends Component {
             )
         }
         return (
-            <div>
+            <div class="nav">
                 <Nav>
                     <Nav.Item>
                     <Nav.Link href='/login'>Sign-In</Nav.Link>

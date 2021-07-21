@@ -49,7 +49,7 @@ class DailyRecordInput extends Component {
 
     render() {
         return (
-            <div>
+            <div class="item-input">
                 <br/>
                 <Form onSubmit={this.handleSubmit} >
                     <Form.Label>Date: </Form.Label>
@@ -74,7 +74,7 @@ class DailyRecordInput extends Component {
                         value={this.state.item_calories} 
                         name="item_calories" 
                         onChange={this.handleChange}/>
-                    <Form.Control type="submit" className="mb-2"/>
+                    <Form.Control type="submit" className="mb-2" value="Add Item" />
                 </Form>
             </div>
         )

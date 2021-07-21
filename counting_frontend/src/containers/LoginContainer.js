@@ -22,10 +22,12 @@ class LoginContainer extends Component {
     render() {
         if (this.props.loading === true) {
             return (
-                <div>
-                    <Jumbotron>
-                    <h1>Counting Cookies</h1>
-                    <NavBar loggedIn={this.props.loggedIn}/>
+<div>
+                    <Jumbotron class="jumbotron">
+                    <div class="header">
+                        <h1>Counting Cookies</h1>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        </div>
                   </Jumbotron>
                 <Spinner animation="border" role="status">
                     <span className="sr-only">Loading...</span>
@@ -37,20 +39,23 @@ class LoginContainer extends Component {
 
                 return (
                     <div>
-                    <Jumbotron>
+                    <Jumbotron class="jumbotron">
+                    <div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar loggedIn={this.props.loggedIn}/>
-                        </Jumbotron>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        </div>
+                  </Jumbotron>
                         <UsersContainer user={this.props.user}/>
                     </div>
                 )
             } else {
                 return (
-
-                    <div>
-                    <Jumbotron>
-                    <h1>Counting Cookies</h1>
-                    <NavBar loggedIn={this.props.loggedIn}/>
+<div>
+                    <Jumbotron class="jumbotron">
+                    <div class="header">
+                        <h1>Counting Cookies</h1>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        </div>
                   </Jumbotron>
                         <Switch>
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />

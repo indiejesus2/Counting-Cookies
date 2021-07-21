@@ -31,7 +31,7 @@ class UserInput extends Component {
 
     render() {
         return (
-            <div>
+            <div class="item-input">
                 <form onSubmit={this.handleSubmit}>
                     <label>Username:</label>
                     <input type="text" placeholder="Username" value={this.state.username} name="username" onChange={this.handleChange}/>
@@ -41,7 +41,7 @@ class UserInput extends Component {
                     <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <label>Daily Calories:</label>
                     <input type="number" value={this.state.target} name="target" onChange={this.handleChange}/>
-                    <input type="submit"/>
+                    <input type="submit" value="Add Item"/>
                 </form>
             </div>
         )

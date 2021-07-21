@@ -19,19 +19,34 @@ export default class SignIn extends Component {
         })
     }
 
+    
     // const [username, setUsername] = useState("")
     // const [password, setPassword] = useState("")
     // let history = useHistory();
-
+    
+    // const HandleUserChange = (event) => {
+    //     useEffect(() => { setUsername(event.target.value) }, []);
+    //     debugger
+    // }
+    
+    // const HandlePasswordChange = (event) => {
+    //     useEffect(() => { setPassword(event.target.value) }, []);
+    // }
     // const handleSubmit = (event) => {
+
+    // useEffect(() => { setUsername(username) }, [])
+    // useEffect(() => { setPassword(password) }, [])
+        
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.loginUser(this.state)
+        this.props.history.push('/users')
         // const token = 
         // let state = {username: username, password: password}
-        this.props.loginUser(this.state)
+        // loginUser(state)
         // props.setSession(true)
         // this.props.setToken(token);
-        this.props.history.push('/users')
+        // props.history.push('/users')
 
         // setUsername('')
         // setPassword('')
@@ -43,9 +58,11 @@ export default class SignIn extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>Username: </label>
                     <input type="text" name="username" id="username" onChange={this.handleChange}/>
+                        {/* this.handleChange}/> */}
                     <label>Password: </label>
                     <input type="password" name="password" id="password" onChange={this.handleChange}/>
-                    <input type="submit"/>
+                        {/* this.handleChange}/> */}
+                    <input type="submit" value="Login"/>
                 </form>
             </div>
         )
