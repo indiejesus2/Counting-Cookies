@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: blue;
+  background-color: aliceblue;
   font-style: oblique;
   font-weight: bolder;
 }
@@ -24,9 +24,14 @@ input {
 .jumbotron {
   display: flex;
   justify-content: center;
-  font-style: oblique;
-  font-weight: bolder;
   padding: 1rem;
+  margin-bottom: 0px;
+}
+
+.jumbotron h1 {
+  font-size: 5rem;
+  font-style: oblique;
+  font-weight: lighter;
 }
 
 img {
@@ -41,7 +46,14 @@ img {
 }
 
 .user {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.records {
   padding: 10px;
+  left: 100px;
 
 }
 

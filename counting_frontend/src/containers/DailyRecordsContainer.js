@@ -11,10 +11,33 @@ import DailyRecord from '../components/DailyRecords/DailyRecord'
 import DailyRecordInput from '../components/DailyRecords/DailyRecordInput'
 import DailyRecords from '../components/DailyRecords/DailyRecords'
 
+
 class DailyRecordsContainer extends Component {
+
+    constructor(props) {
+        super(props);
+        // this.handleDayClick = this.handleDayClick.bind(this);
+        this.state = {
+            selectedDays: [],
+        };
+    }
 
     componentDidMount() {
         this.props.fetchRecords(this.props.user)
+        this.handleCalendar(this.props.user.attributes.records)
+    }
+
+    handleCalendar(days) {
+        // const selectedDays = this.state.selectedDays.concat();
+        // debugger
+            days.forEach(day =>
+                this.setState({
+                    selectedDays: [...this.state.selectedDays, day.date]
+                })
+            )
+                // selectedDays.push(day.date) 
+        // this.setState({ selectedDays })
+        // debugger
     }
 
     render() {

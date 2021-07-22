@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 
 const Upvote = (props) => {
 
-
     const [id] = useState(props.record.id)
     const [user_id] = useState(props.record.user_id)
     const [vote, handleUpvote] = useState(props.record.vote)

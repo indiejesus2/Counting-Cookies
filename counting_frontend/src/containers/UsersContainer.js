@@ -9,6 +9,9 @@ import UserInput from '../components/Users/UserInput'
 import Users from '../components/Users/Users'
 import User from '../components/Users/User'
 import Login from '../components/Login/SignIn'
+import DailyRecordsContainer from '../containers/DailyRecordsContainer';
+
+
 
 class UsersContainer extends Component {
     
@@ -20,12 +23,18 @@ class UsersContainer extends Component {
         // if (this.props.loading === false) {
             return (
                 <div>
-                    <Switch>
-                        {/* <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} records={this.props.records} />}/> */}
-                        <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
-                        {/* <Route direct path='/login' render={(routerProps) => <Login {...routerProps} loginUser={this.props.loginUser} />}/> */}
-                        <Route direct path='/signin'><Redirect to="/users" /></Route>
-                    </Switch>
+                    <div class="user">
+                        <Switch>
+                            {/* <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} records={this.props.records} />}/> */}
+                            <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
+                            {/* <Route direct path='/login' render={(routerProps) => <Login {...routerProps} loginUser={this.props.loginUser} />}/> */}
+                            <Route direct path='/signin'><Redirect to="/users" /></Route>
+                        </Switch>
+                    </div>
+
+                    <div class="records">
+                     <DailyRecordsContainer class="records" user={this.props.user}/>
+                 </div>
                 </div>
             )
         // } else {

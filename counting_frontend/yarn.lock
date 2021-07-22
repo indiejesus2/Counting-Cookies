@@ -9158,6 +9158,13 @@
     "uncontrollable" "^7.0.0"
     "warning" "^4.0.3"
 
+"react-day-picker@^7.4.10":
+  "integrity" "sha512-/QkK75qLKdyLmv0kcVzhL7HoJPazoZXS8a6HixbVoK6vWey1Od1WRLcxfyEiUsRfccAlIlf6oKHShqY2SM82rA=="
+  "resolved" "https://registry.npmjs.org/react-day-picker/-/react-day-picker-7.4.10.tgz"
+  "version" "7.4.10"
+  dependencies:
+    "prop-types" "^15.6.2"
+
 "react-dev-utils@^11.0.1":
   "integrity" "sha512-rlgpCupaW6qQqvu0hvv2FDv40QG427fjghV56XyPcP5aKtOAPzNAhQ7bHqk1YdS2vpW1W7aSV3JobedxuPlBAA=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.1.tgz"
@@ -9352,7 +9359,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^17.0.1":
+"react@^17.0.1", "react@~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
