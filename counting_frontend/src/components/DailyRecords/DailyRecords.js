@@ -21,13 +21,19 @@ import 'react-day-picker/lib/style.css'
 
     // }
     const sorted = props.records.sort((a,b) => (b.vote > a.vote) ? 1 : -1)
-    const selected = props.records.map(record => record.date.split("-").join())
-    debugger
+    const records = props.records.map(record => record.date)
+    const vinyl = records.map(record => record.split("-"))
+    for (let i = 0; i<vinyl.length; i++) {
+        let x = 0
+        while (x<3) {
+            vinyl[i].splice(x, 1, Number(vinyl[i][x]))
+            x++
+        }
+    }
         return (
             <div>
-                {selected.forEach(select => 
-                    <DayPicker selectedDays={[new Date(select)]} />
-                )}
+                {/* <DayPicker selectedDays={[new Date(`${Number(select[0])}, ${Number(select[1])}, ${Number(select[2])}`)]} /> */}
+                <DayPicker selectedDays={vinyl.map(date => new Date(date))} />
                 <br />
                 <h4>Daily Records</h4>
                 {sorted.map(record => 
