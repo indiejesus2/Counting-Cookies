@@ -31,17 +31,21 @@ import 'react-day-picker/lib/style.css'
         }
     }
         return (
-            <div>
+            <div class="dailyrecords">
                 {/* <DayPicker selectedDays={[new Date(`${Number(select[0])}, ${Number(select[1])}, ${Number(select[2])}`)]} /> */}
-                <DayPicker selectedDays={vinyl.map(date => new Date(date))} />
+                <DayPicker class="calendar" selectedDays={vinyl.map(date => new Date(date))} />
                 <br />
-                <h4>Daily Records</h4>
-                {sorted.map(record => 
-                    <li id={record.id} key={record.id}>
-                        <Link to={`/users/${record.user_id}/records/${record.id}`} >{record.date}</Link>
-                        <Upvote record={record} addVote={props.addVote} />
-                    </li>
-                    )}
+                <div class="records">
+                    <h4>Daily Records</h4>
+                    <ul>
+                    {sorted.map(record => 
+                        <li id={record.id} key={record.id}>
+                            <Link to={`/users/${record.user_id}/records/${record.id}`} >{record.date}</Link>
+                            <Upvote record={record} addVote={props.addVote} />
+                        </li>
+                        )}
+                    </ul>
+                </div>
             </div>
         )    
     }

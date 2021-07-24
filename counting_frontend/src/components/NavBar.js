@@ -5,11 +5,13 @@ import Nav from 'react-bootstrap/Nav'
 class NavBar extends Component {
 
     render() {
+        debugger
         if (this.props.loggedIn == true) {
             return (
                 <div>
                     <Nav.Item>
-                    <Nav.Link href='/logout'>Sign-Out</Nav.Link>
+                        <Nav.Link href='/logout'>Sign-Out</Nav.Link>
+                        <Nav.Link href={`/users/${this.props.user.id}/addRecord`}>Add Record</Nav.Link>
                     </Nav.Item>
                 </div>
             )

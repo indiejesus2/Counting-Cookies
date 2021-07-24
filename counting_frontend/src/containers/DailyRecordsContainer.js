@@ -14,31 +14,31 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        // this.handleDayClick = this.handleDayClick.bind(this);
-        this.state = {
-            selectedDays: [],
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     // this.handleDayClick = this.handleDayClick.bind(this);
+    //     this.state = {
+    //         selectedDays: [],
+    //     };
+    // }
 
     componentDidMount() {
         this.props.fetchRecords(this.props.user)
-        this.handleCalendar(this.props.user.attributes.records)
+        // this.handleCalendar(this.props.user.attributes.records)
     }
 
-    handleCalendar(days) {
-        // const selectedDays = this.state.selectedDays.concat();
-        // debugger
-            days.forEach(day =>
-                this.setState({
-                    selectedDays: [...this.state.selectedDays, day.date]
-                })
-            )
-                // selectedDays.push(day.date) 
-        // this.setState({ selectedDays })
-        // debugger
-    }
+    // handleCalendar(days) {
+    //     // const selectedDays = this.state.selectedDays.concat();
+    //     // debugger
+    //         days.forEach(day =>
+    //             this.setState({
+    //                 selectedDays: [...this.state.selectedDays, day.date]
+    //             })
+    //         )
+    //             // selectedDays.push(day.date) 
+    //     // this.setState({ selectedDays })
+    //     // debugger
+    // }
 
     render() {
         if (this.props.loading === false) {
@@ -46,7 +46,7 @@ class DailyRecordsContainer extends Component {
                 <div>
                     <Route direct path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
                     <DailyRecords records={this.props.records} editRecord={this.props.editRecord}/>
-                    <DailyRecordInput user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>
+                    <Route direct path='/users/:id/addrecord' render={(routerProps) => <DailyRecordInput {...routerProps} user={this.props.user} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord}/>} />
                 </div>
             )
         } else {

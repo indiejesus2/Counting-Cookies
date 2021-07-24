@@ -54,7 +54,11 @@ img {
 .records {
   padding: 10px;
   left: 100px;
+}
 
+.dailyrecords {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .item-input {

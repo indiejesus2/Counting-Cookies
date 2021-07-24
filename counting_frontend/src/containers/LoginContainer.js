@@ -12,7 +12,6 @@ import UsersContainer from './UsersContainer'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import NavBar from '../components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import loginReducer from '../reducers/loginReducer'
 
 class LoginContainer extends Component {
     // const [user, setUser] = useState("");
@@ -26,7 +25,7 @@ class LoginContainer extends Component {
                     <Jumbotron class="jumbotron">
                     <div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
                   </Jumbotron>
                 <Spinner animation="border" role="status">
@@ -42,7 +41,7 @@ class LoginContainer extends Component {
                     <Jumbotron class="jumbotron">
                     <div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
                   </Jumbotron>
                         <UsersContainer user={this.props.user}/>
@@ -54,7 +53,7 @@ class LoginContainer extends Component {
                     <Jumbotron class="jumbotron">
                     <div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
                   </Jumbotron>
                         <Switch>
