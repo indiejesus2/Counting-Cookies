@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav'
 class NavBar extends Component {
 
     render() {
-        debugger
         if (this.props.loggedIn == true) {
             return (
                 <div>

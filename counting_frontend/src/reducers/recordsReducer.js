@@ -1,4 +1,4 @@
-export default function recordsReducer(state = {records: [], loading: false}, action) {
+export default function recordsReducer(state = {records: [], date: "", loading: false}, action) {
     switch(action.type) {
         
         case 'LOADING_RECORDS':
@@ -7,7 +7,9 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
                 loading: true
             }
         case 'FETCH_RECORDS':
-            return {records: action.payload.data,
+            // debugger
+            return {
+                records: action.payload.data.map(dat => dat.attributes),
                 loading: false
             }
         case 'ADD_RECORD':
@@ -37,6 +39,8 @@ export default function recordsReducer(state = {records: [], loading: false}, ac
                 }
             })
             return {...state, records: deleted}
+        case 'SELECT_DATE':
+            return {...state, date: action.payload}
         default:
             return state
     }

@@ -4,12 +4,21 @@ import Form from 'react-bootstrap/Form'
 class DailyRecordInput extends Component {
 
     state = {
-        date: "",
+        date: this.props.date,
         item_name: "",
         item_calories: "",
         user_id: this.props.user.id,
         id: 0,
         vote: 0
+    }
+
+    componentDidUpdate = (prevProps) => {
+        debugger
+        if (prevProps.date != this.props.date) {
+            this.setState({
+                date: this.props.date
+            })
+        }
     }
     
     checkRecord(date) {
@@ -48,17 +57,18 @@ class DailyRecordInput extends Component {
     }
 
     render() {
+
         return (
             <div class="item-input">
                 <br/>
                 <Form onSubmit={this.handleSubmit} >
                     <Form.Label>Date: </Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="date"
                         className="mb-2 mr-sm-2" 
                         id="inlineFormInputName2"
-                        value={this.state.date} 
                         name="date" 
+                        value={this.state.date}
                         onChange={this.handleChange}/>
                     <Form.Label>Item Name: </Form.Label>
                     <Form.Control 
