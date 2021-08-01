@@ -3,13 +3,13 @@ import DayPicker from 'react-day-picker';
 import {Link} from 'react-router-dom'
 import 'react-day-picker/lib/style.css';
 import { connect } from 'react-redux';
+import { selectDate } from '../../actions/selectDate';
 
 
 
 class Calendar extends Component {
     renderDay = (day) => {
         let date = day.toJSON().split("T")[0]
-        debugger
         const dateStyle = {
             position: 'absolute',
             color: 'lightgray',
@@ -38,9 +38,15 @@ class Calendar extends Component {
             </div>
         )
     }
+
+    handleDayClick = (day) => {
+        let date = day.toJSON().split("T")[0]
+        this.props.selectDate(date)
+    }
+
     render() {
         return (
-            <DayPicker class="calendar" selectedDays={this.props.records.map(date => new Date(date))} renderDay={this.renderDay} />
+            <DayPicker class="calendar" selectedDays={this.props.records.map(date => new Date(date))} renderDay={this.renderDay}  onDayClick={this.handleDayClick}/>
         )
     }
 }
@@ -51,6 +57,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps)(Calendar)
-
-// onDayClick={this.handleDayClick}
+export default connect (mapStateToProps, {selectDate})(Calendar)
