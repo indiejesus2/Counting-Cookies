@@ -13,7 +13,6 @@ class DailyRecordInput extends Component {
     }
 
     componentDidUpdate = (prevProps) => {
-        debugger
         if (prevProps.date != this.props.date) {
             this.setState({
                 date: this.props.date

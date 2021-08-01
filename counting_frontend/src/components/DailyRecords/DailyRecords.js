@@ -1,8 +1,9 @@
 // import React, { Component } from 'react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import Upvote from './voteRecord'
+import Calendar from '../Calendar/Calendar'
 import {addVote} from '../../actions/addVote'
 import {selectDate} from '../../actions/selectDate'
 import DayPicker from 'react-day-picker'
@@ -10,14 +11,23 @@ import 'react-day-picker/lib/style.css'
 
 class DailyRecords extends Component {
 
+
     handleDayClick = (day) => {
-        this.props.selectDate(day.toJSON().split("T")[0])
+        let date = day.toJSON().split("T")[0]
+        const record = this.props.sorted.filter(sort => sort.date === date)
+        if(record.length > 0) {
+            // browserHistory
+            // debugger
+            // browserHistory.push(`/users/${record[0].user_id}/records/${record[0].id}`)
+        }
+        this.props.selectDate(date)
     }
 
     render() {
         return (
             <div class="dailyrecords">
-                <DayPicker class="calendar" selectedDays={this.props.vinyl.map(date => new Date(date))} onDayClick={this.handleDayClick} />
+                <Calendar records={this.props.records} />
+                
                 <br />
                 <div class="records">
                     <h4>Daily Records</h4>
