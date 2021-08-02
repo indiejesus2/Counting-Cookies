@@ -11,10 +11,37 @@ import 'react-day-picker/lib/style.css'
 
 class DailyRecords extends Component {
 
+    renderComponent() {
+        switch(this.props.displayedComponent) {
+            case "Calendar":
+                return <Calendar records={this.props.records} />
+            case "List":
+                return this.renderList()
+        }
+    }
+
+    renderList() {
+        return(
+        <div class="records">
+        <h4>Daily Records</h4>
+        <ul>
+        {this.props.sorted.map(record => 
+            <li id={record.id} key={record.id}>
+                <Link to={`/users/${record.user_id}/records/${record.id}`} >{record.date}</Link>
+                <Upvote record={record} addVote={this.props.addVote} />
+            </li>
+            )}
+        </ul>
+    </div>
+        )
+    }
+
     render() {
+
         return (
             <div class="dailyrecords">
-                <Calendar records={this.props.records} />
+                {this.renderComponent()}
+{/*                 
                 
                 <br />
                 <div class="records">
@@ -27,7 +54,7 @@ class DailyRecords extends Component {
                         </li>
                         )}
                     </ul>
-                </div>
+                </div> */}
             </div>
         )    
     }

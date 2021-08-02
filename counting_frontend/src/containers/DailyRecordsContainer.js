@@ -14,17 +14,24 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     // this.handleDayClick = this.handleDayClick.bind(this);
-    //     this.state = {
-    //         selectedDays: [],
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        // this.handleDayClick = this.handleDayClick.bind(this);
+        this.state = {
+            displayedComponent: "List" ,
+        };
+    }
 
     componentDidMount() {
         this.props.fetchRecords(this.props.user)
         // this.handleCalendar(this.props.user.attributes.records)
+    }
+
+    toggleBox = () => {
+        var display = this.state.displayedComponent === "List" ? "Calendar" : "List"
+        this.setState({
+            displayedComponent: display
+        })
     }
 
     // handleCalendar(days) {
@@ -44,8 +51,15 @@ class DailyRecordsContainer extends Component {
         if (this.props.loading === false) {
             return (
                 <div>
+                    <div className="toggle">
+                        <label className="switch">
+                            <input type="checkbox" onChange={this.toggleBox}/>
+                            <span className="slider">Calendar</span>
+                        </label>
+
+                    </div>
                     <Route path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
-                    <DailyRecords records={this.props.records} editRecord={this.props.editRecord} user={this.props.user} />
+                    <DailyRecords records={this.props.records} editRecord={this.props.editRecord} user={this.props.user} displayedComponent={this.state.displayedComponent}/>
                     {/* <Route path='/users/:id/addrecord' render={(routerProps) =>  */}
                     <DailyRecordInput user={this.props.user} date={this.props.date} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord} />
                 </div>
@@ -63,7 +77,8 @@ const mapStateToProps = state => {
     return {
         records: state.recordsReducer.records,
         loading: state.recordsReducer.loading,
-        date: state.recordsReducer.date
+        date: state.recordsReducer.date,
+        display: state.displayedComponent
     }
 }
 
