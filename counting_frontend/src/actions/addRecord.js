@@ -1,5 +1,6 @@
 export const addRecord = (record) => {
     return (dispatch) => {
+        dispatch({type: 'LOADING_RECORDS'})
         const configObj = {
             method: "POST",
             headers: {

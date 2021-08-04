@@ -4,30 +4,24 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 import {fetchUsers} from '../actions/fetchUsers'
 import {addUser} from '../actions/addUser'
 import {loginUser} from '../actions/loginUser'
-import Spinner from 'react-bootstrap/Spinner'
-import UserInput from '../components/Users/UserInput'
-import Users from '../components/Users/Users'
+import {fetchRecords} from '../actions/fetchRecords'
 import User from '../components/Users/User'
-import Login from '../components/Login/SignIn'
 import DailyRecordsContainer from '../containers/DailyRecordsContainer';
 
 
 
 class UsersContainer extends Component {
-    
-    // componentDidMount() {
-    //     this.props.fetchUsers()
-    // }
 
+    componentDidMount() {
+        this.props.fetchRecords(this.props.user)
+    }
+    
     render() {
-        // if (this.props.loading === false) {
             return (
                 <div>
                     <div class="user">
                         <Switch>
-                            {/* <Route direct path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} records={this.props.records} />}/> */}
                             <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
-                            {/* <Route direct path='/login' render={(routerProps) => <Login {...routerProps} loginUser={this.props.loginUser} />}/> */}
                             <Route direct path='/signin'><Redirect to="/users" /></Route>
                         </Switch>
                     </div>
@@ -37,18 +31,12 @@ class UsersContainer extends Component {
                  </div>
                 </div>
             )
-        // } else {
-        //     return (
-        //         <Spinner animation="border" role="status">
-        //             <span className="sr-only">Loading...</span>
-        //         </Spinner>
-        // )}
     }
 }
 
-
 const mapDispatchToProps = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
+    fetchRecords: user => dispatch(fetchRecords(user)),
     addUser: user => dispatch(addUser(user)),
     loginUser: user => dispatch(loginUser(user))
 })

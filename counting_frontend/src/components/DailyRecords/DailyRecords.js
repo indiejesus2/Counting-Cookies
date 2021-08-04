@@ -1,12 +1,8 @@
-// import React, { Component } from 'react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import Upvote from './voteRecord'
 import Calendar from '../Calendar/Calendar'
-import {addVote} from '../../actions/addVote'
 import {selectDate} from '../../actions/selectDate'
-import DayPicker from 'react-day-picker'
 import 'react-day-picker/lib/style.css'
 
 class DailyRecords extends Component {
@@ -28,7 +24,6 @@ class DailyRecords extends Component {
         {this.props.sorted.map(record => 
             <li id={record.id} key={record.id}>
                 <Link to={`/users/${record.user_id}/records/${record.id}`} >{record.date}</Link>
-                <Upvote record={record} addVote={this.props.addVote} />
             </li>
             )}
         </ul>
@@ -41,20 +36,6 @@ class DailyRecords extends Component {
         return (
             <div class="dailyrecords">
                 {this.renderComponent()}
-{/*                 
-                
-                <br />
-                <div class="records">
-                    <h4>Daily Records</h4>
-                    <ul>
-                    {this.props.sorted.map(record => 
-                        <li id={record.id} key={record.id}>
-                            <Link to={`/users/${record.user_id}/records/${record.id}`} >{record.date}</Link>
-                            <Upvote record={record} addVote={this.props.addVote} />
-                        </li>
-                        )}
-                    </ul>
-                </div> */}
             </div>
         )    
     }
@@ -64,8 +45,8 @@ class DailyRecords extends Component {
 const mapStateToProps = state => {
     return {
         vinyl: state.recordsReducer.records.map(record => record.date),
-        sorted: state.recordsReducer.records.sort((a,b) => (b.vote > a.vote) ? 1 : -1)
+        sorted: state.recordsReducer.records.sort((a,b) => (b.date < a.date) ? 1 : -1)
     }
 }
 
-export default connect( mapStateToProps, { addVote, selectDate })(DailyRecords)
+export default connect( mapStateToProps, { selectDate })(DailyRecords)
