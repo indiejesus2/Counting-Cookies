@@ -17,6 +17,7 @@ class DailyRecords extends Component {
     }
 
     renderList() {
+        debugger
         return(
         <div class="records">
         <h4>Daily Records</h4>
@@ -44,7 +45,6 @@ class DailyRecords extends Component {
 
 const mapStateToProps = state => {
     return {
-        vinyl: state.recordsReducer.records.map(record => record.date),
         sorted: state.recordsReducer.records.sort((a,b) => (b.date < a.date) ? 1 : -1)
     }
 }

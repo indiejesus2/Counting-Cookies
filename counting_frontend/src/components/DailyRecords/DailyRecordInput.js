@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
 
 class DailyRecordInput extends Component {
 
@@ -58,33 +57,34 @@ class DailyRecordInput extends Component {
     render() {
 
         return (
-            <div class="item-input">
-                <br/>
-                <Form onSubmit={this.handleSubmit} >
-                    <Form.Label>Date: </Form.Label>
-                    <Form.Control
+            <div class="signin">
+            <div class="input">
+                <form onSubmit={this.handleSubmit} >
+                    <label>Date: </label>
+                    <input
                         type="date"
-                        className="mb-2 mr-sm-2" 
-                        id="inlineFormInputName2"
                         name="date" 
                         value={this.state.date}
                         onChange={this.handleChange}/>
-                    <Form.Label>Item Name: </Form.Label>
-                    <Form.Control 
-                        className="mb-2 mr-sm-2" 
-                        id="inlineFormInputName2"
+                        <br />
+                    <label>Item Name: </label>
+                    <input 
+                    type="text"
                         value={this.state.item_name} 
                         name="item_name" 
                         onChange={this.handleChange}/>
-                    <Form.Label>Item Calories: </Form.Label>
-                    <Form.Control 
-                        className="mb-2 mr-sm-2" 
-                        id="inlineFormInputName2"
+                        <br />
+                    <label>Item Calories: </label>
+                    <input 
+                        type="number"
                         value={this.state.item_calories} 
                         name="item_calories" 
                         onChange={this.handleChange}/>
-                    <Form.Control type="submit" className="mb-2" value="Add Item" />
-                </Form>
+                        <div class="submit">
+                            <input type="submit" value="Add Item" />
+                        </div>
+                </form>
+            </div>
             </div>
         )
     }

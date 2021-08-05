@@ -31,9 +31,9 @@ export default function recordsReducer(state = {records: [], date: "", loading: 
                     return record
                 }
             })
-            return {...state, records: edited}
+            return {...state, records: [...state.records, edited]}
         case 'DELETE_RECORD':
-            return {...state, records: action.payload.data}
+            return {...state, records: [...state.records, action.payload.data]}
         case 'DELETE_ITEM':
             let deleted = state.records.map(record => {
                 if(record.id === action.payload.data.id) {
@@ -42,7 +42,7 @@ export default function recordsReducer(state = {records: [], date: "", loading: 
                     return record
                 }
             })
-            return {...state, records: deleted}
+            return {...state, records: [...state.records, deleted]}
         case 'SELECT_DATE':
             return {...state, date: action.payload}
         default:
