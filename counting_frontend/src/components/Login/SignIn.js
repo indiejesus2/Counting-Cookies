@@ -54,16 +54,23 @@ export default class SignIn extends Component {
 
     render() {
         return (
-            <div>
+            <div class="signin">
+                <h1>Sign-In</h1>
+                <p>How many cookies can we eat today?</p>
+            <div class="input">
                 <form onSubmit={this.handleSubmit}>
                     <label>Username: </label>
                     <input type="text" name="username" id="username" onChange={this.handleChange}/>
+                    <br />
                         {/* this.handleChange}/> */}
                     <label>Password: </label>
                     <input type="password" name="password" id="password" onChange={this.handleChange}/>
                         {/* this.handleChange}/> */}
-                    <input type="submit" value="Login"/>
+                        <div class="submit">
+                            <input type="submit" value="Log-In"/>
+                        </div>
                 </form>
+            </div>
             </div>
         )
     }

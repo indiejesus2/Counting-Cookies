@@ -3,11 +3,13 @@ export default function loginReducer(state = {user: [], loggedIn: false, loading
         case 'FETCH_USER':
             return {loading: true}
         case 'LOGIN_USER':
+            localStorage.setItem('user', action.payload.data)
             return {user: action.payload.data,
                 loggedIn: true,
                 loading: false
             }
         case 'LOGOUT_USER':
+            localStorage.clear();
             return {user: [],
                 loggedIn: false
             }

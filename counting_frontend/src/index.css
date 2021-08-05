@@ -15,10 +15,8 @@ label {
   margin-right: 5px;
   font-weight: bold;
   font-style: oblique;
-}
-
-input {
-  margin: 5px;
+  width: 138px;
+  text-align: right;
 }
 
 .jumbotron {
@@ -61,16 +59,34 @@ img {
   justify-content: space-evenly;
 }
 
-.item-input {
-  margin: 5px;
+.input {
   border: 1px black solid;
-  display: flex;
+  display: grid;
   justify-content: center;
-  width: 250px;
+  padding: 25px;
+  margin: 25px;
+  padding-left: 5px;
 }
 
-input {
-  padding: 5px;
+.signup{
+  margin-top: 25px;
+  display: grid;
+  justify-content: center;
+}
+
+.signin{
+  margin-top: 25px;
+  display: grid;
+  justify-content: center;
+}
+
+.signin label{
+  width: 100px;
+}
+
+.submit {
+  display: flex;
+  justify-content: right;
 }
 
 /* .jumbotron .header {
