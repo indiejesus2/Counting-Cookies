@@ -10,14 +10,13 @@ class DailyRecords extends Component {
     renderComponent() {
         switch(this.props.displayedComponent) {
             case "Calendar":
-                return <Calendar records={this.props.records} />
+                return <Calendar className="calendar" records={this.props.records} />
             case "List":
                 return this.renderList()
         }
     }
 
     renderList() {
-        debugger
         return(
         <div class="records">
         <h4>Daily Records</h4>

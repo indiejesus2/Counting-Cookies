@@ -22,27 +22,34 @@ class LoginContainer extends Component {
         if (this.props.loading === true) {
             return (
 <div>
+<div class="header">
+                        <h1>Counting Cookies</h1>
+                        </div>
                     <Jumbotron class="jumbotron">
                     <div class="header">
                         <h1>Counting Cookies</h1>
                         <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
                   </Jumbotron>
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                  <div className="spinner">
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                  </div>
                 </div>
             )
         } else {
             if (this.props.loggedIn === true) {
 
                 return (
+
                     <div>
-                    <Jumbotron class="jumbotron">
-                    <div class="header">
+                                            <div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
+                    <Jumbotron class="jumbotron">
+
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                   </Jumbotron>
                         <UsersContainer user={this.props.user}/>
                     </div>
@@ -50,11 +57,13 @@ class LoginContainer extends Component {
             } else {
                 return (
 <div>
-                    <Jumbotron class="jumbotron">
-                    <div class="header">
+<div class="header">
                         <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                         </div>
+
+                    <Jumbotron class="jumbotron">
+
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
                   </Jumbotron>
                         <Switch>
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />

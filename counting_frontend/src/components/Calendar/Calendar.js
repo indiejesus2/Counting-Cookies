@@ -12,12 +12,16 @@ class Calendar extends Component {
         let date = day.toJSON().split("T")[0]
         const dateStyle = {
             position: 'absolute',
-            color: 'lightgray',
-            bottom: 0,
-            right: 0,
-            fontSize: 20,
+            color: 'black',
+            top: 0,
+            left: 0,
+            fontSize: 20            
           };
-          const birthdayStyle = { fontSize: '0.8em', textAlign: 'left' };
+          const birthdayStyle = { fontSize: '0.8em', textAlign: 'left', 
+          position: 'absolute',
+          bottom: '0px',
+          right: '0px',
+        };
           const cellStyle = {
             height: 50,
             width: 60,
@@ -25,7 +29,6 @@ class Calendar extends Component {
           };
         return (
             <div style={cellStyle}>
-                <div style={dateStyle}>{date[8] + date[9]}</div>
                 {this.props.records.map(function(record) {
                     if (record.date == date) {
                         return (
@@ -35,6 +38,8 @@ class Calendar extends Component {
                         )
                     }
                 })}
+                <div style={dateStyle}>{date[8] + date[9]}</div>
+
             </div>
         )
     }

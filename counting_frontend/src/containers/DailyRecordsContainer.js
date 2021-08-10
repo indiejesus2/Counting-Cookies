@@ -17,6 +17,7 @@ class DailyRecordsContainer extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.records.length > prevProps.records.length) {
             this.props.fetchRecords(this.props.user)
+            this.checkedOut()
         }
     }
 
@@ -27,11 +28,20 @@ class DailyRecordsContainer extends Component {
         };
     }
 
-    toggleBox = () => {
+    toggleBox = (e) => {
         var display = this.state.displayedComponent === "List" ? "Calendar" : "List"
+        console.log(this.state.displayedComponent)
         this.setState({
             displayedComponent: display
         })
+        console.log(this.state.displayedComponent)
+    }
+
+    checkedOut = () => {
+        let slider = document.getElementById("slider")
+        if (this.state.displayedComponent === "Calendar") {
+            slider.click()
+        }
     }
 
     render() {
@@ -40,8 +50,8 @@ class DailyRecordsContainer extends Component {
                 <div>
                     <div className="toggle">
                         <label className="switch">
-                            <input type="checkbox" onChange={this.toggleBox}/>
-                            <span className="slider">Calendar</span>
+                            <input type="checkbox" onChange={this.toggleBox} />
+                            <span id="slider">Calendar</span>
                         </label>
 
                     </div>
@@ -52,9 +62,11 @@ class DailyRecordsContainer extends Component {
             )
         } else {
             return (
+                <div className="spinner">
                 <Spinner animation="border" role="status">
                     <span className="sr-only">Loading...</span>
                 </Spinner>
+              </div>
         )}
     }
 }

@@ -21,13 +21,13 @@ label {
 
 .jumbotron {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding: 1rem;
   margin-bottom: 0px;
 }
 
-.jumbotron h1 {
-  font-size: 5rem;
+.header h1 {
+  font-size: 4rem;
   font-style: oblique;
   font-weight: lighter;
 }
@@ -40,7 +40,7 @@ img {
 }
 
 .nav {
-  justify-content: center;
+  justify-content: start;
 }
 
 .user {
@@ -89,6 +89,23 @@ img {
   justify-content: right;
 }
 
+.spinner {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.DayPicker {
+  border: 2px solid blue;
+}
+
+.cellStyle {
+  height: 50;
+  width: 60;
+  position: relative;
+  padding: 0;
+  border-bottom: 1px black solid
+};
 /* .jumbotron .header {
   justify-content: center;
   font-style: oblique;
