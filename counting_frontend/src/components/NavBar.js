@@ -10,6 +10,9 @@ class NavBar extends Component {
                 <div>
                     <Nav.Item>
                         <Nav.Link href='/logout'>Sign-Out</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href='/editprofile'>Profile</Nav.Link>
                         {/* <Nav.Link href={`/users/${this.props.user.id}/addRecord`}>Add Record</Nav.Link> */}
                     </Nav.Item>
                 </div>
