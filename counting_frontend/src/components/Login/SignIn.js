@@ -1,27 +1,31 @@
 
-import React, { Component } from 'react';
-// import React, { useState, useEffect } from 'react'
+// import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import {loginUser} from '../../actions/loginUser'
 
 
-// export default function SignIn(props) {
-export default class SignIn extends Component {
+export default function SignIn(props) {
+// export default class SignIn extends Component {
 
-    state = {
-        username: '',
-        password: '',
-    }
+    // state = {
+    //     username: '',
+    //     password: '',
+    // }
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleChange = (event) => {
+        return(
+        event.target.name==="username"?setUsername(event.target.value):
+        event.target.name==="password"?setPassword(event.target.value):
+        ()=>{}
+        )
     }
 
     
-    // const [username, setUsername] = useState("")
-    // const [password, setPassword] = useState("")
+
     // let history = useHistory();
     
     // const HandleUserChange = (event) => {
@@ -37,10 +41,11 @@ export default class SignIn extends Component {
     // useEffect(() => { setUsername(username) }, [])
     // useEffect(() => { setPassword(password) }, [])
         
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
-        this.props.loginUser(this.state)
-        this.props.history.push('/users')
+        let state = {username: username, password: password}
+        props.loginUser(state)
+        // this.props.history.push('/users')
         // const token = 
         // let state = {username: username, password: password}
         // loginUser(state)
@@ -52,19 +57,19 @@ export default class SignIn extends Component {
         // setPassword('')
     }
 
-    render() {
+    // render() {
         return (
             <div class="signin">
                 <h1>Sign-In</h1>
                 <p>How many cookies can we eat today?</p>
             <div class="input">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <label>Username: </label>
-                    <input type="text" name="username" id="username" onChange={this.handleChange}/>
+                    <input type="text" name="username" id="username" onChange={handleChange}/>
                     <br />
                         {/* this.handleChange}/> */}
                     <label>Password: </label>
-                    <input type="password" name="password" id="password" onChange={this.handleChange}/>
+                    <input type="password" name="password" id="password" onChange={handleChange}/>
                         {/* this.handleChange}/> */}
                         <div class="submit">
                             <input type="submit" value="Log-In"/>
@@ -73,7 +78,7 @@ export default class SignIn extends Component {
             </div>
             </div>
         )
-    }
+    // }
 
 
 }
