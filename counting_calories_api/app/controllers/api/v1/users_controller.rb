@@ -11,8 +11,10 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
-            render json: UserSerializer.new(@user)
+        if @user.valid?
+            @user.save
+            @token = encode_token(@user)
+            render json: UserSerializer.new( user: @user, jwt: @token)
         end
     end
 
