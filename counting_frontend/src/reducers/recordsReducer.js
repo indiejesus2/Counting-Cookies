@@ -7,7 +7,6 @@ export default function recordsReducer(state = {records: [], date: "", loading: 
                 loading: true
             }
         case 'FETCH_RECORDS':
-            // debugger
             return {
                 records: action.payload.data.map(dat => dat.attributes),
                 loading: false

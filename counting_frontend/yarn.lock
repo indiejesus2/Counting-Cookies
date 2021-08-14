@@ -6748,7 +6748,7 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.0"
 
-"js-cookie@2.2.0":
+"js-cookie@^2.2.0", "js-cookie@2.2.0":
   "integrity" "sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s="
   "resolved" "https://registry.npmjs.org/js-cookie/-/js-cookie-2.2.0.tgz"
   "version" "2.2.0"
@@ -9388,7 +9388,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^17.0.1":
+"react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^17.0.1", "react@~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
@@ -9603,7 +9603,7 @@
   "resolved" "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.3.0.tgz"
   "version" "2.3.0"
 
-"redux@^4.0.5":
+"redux@^3.0.0 || ^4.0.0", "redux@^4.0.5":
   "integrity" "sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w=="
   "resolved" "https://registry.npmjs.org/redux/-/redux-4.0.5.tgz"
   "version" "4.0.5"

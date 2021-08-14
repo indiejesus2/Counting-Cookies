@@ -5,6 +5,18 @@ export default function EditUser(props) {
     const [username, setUsername] = useState(props.username)
     const [target, setTarget] = useState(props.target)
 
+    const handleChange = (event) => {
+        return(
+            event.target.name==="username"?setUsername(event.target.value):
+            event.target.name==="target"?setTarget(event.target.value):
+            ()=>{}
+            )
+    }
+
+    const handleSubmit = () => {
+
+    }
+
     return(
         <div className="profile">
             <h3>Profile</h3>

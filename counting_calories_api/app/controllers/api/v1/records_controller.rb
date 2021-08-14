@@ -1,5 +1,7 @@
 class Api::V1::RecordsController < ApplicationController
 
+    skip_before_action :authorized
+
     before_action :set_user
     before_action :set_record, only: [:show, :edit, :update, :destroy]
     wrap_parameters :record, include: [:user_id, :date, :vote, :item_name, :item_calories]

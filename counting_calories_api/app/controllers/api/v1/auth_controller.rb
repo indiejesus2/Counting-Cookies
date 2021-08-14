@@ -1,12 +1,12 @@
-class API::V1::AuthController < ApplicationController
+class Api::V1::AuthController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
-    # wrap_parameters :user, include: [:username, :password]
+    wrap_parameters :user, include: [:username, :password]
 
     def create
         @user = User.find_by(username: user_params[:username])
         if @user && @user.authenticate(user_params[:password])
-            token = issue_token(user)
+            token = issue_token(@user)
             render json: {user: UserSerializer.new(@user), jwt: token}
         else
             render json: {error: "Incorrect Username/Password"}, status: 401
@@ -16,16 +16,16 @@ class API::V1::AuthController < ApplicationController
     def show
         @user = User.find_by(id: user_id)
         if logged_in?
-            render json: user
+            render json: @user
         else
-            render json {error: 'No user could be found'}, status: 401
+            render json: {error: 'No user could be found'}, status: 401
         end
     end
 
     private
-    
-    def user_login_params
-        params.require(:user).permit(:username, :password)
+
+    def user_params
+        params.require(:user).permit(:name, :target, :username, :password)
     end
 
 end

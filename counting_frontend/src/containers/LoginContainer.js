@@ -8,12 +8,15 @@ import SignIn from '../components/Login/SignIn'
 import SignOut from '../components/Login/SignOut'
 import UserInput from '../components/Users/UserInput'
 import { loginUser } from '../actions/loginUser'
+import { currentUser } from '../actions/currentUser'
 import UsersContainer from './UsersContainer'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import NavBar from '../components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class LoginContainer extends Component {
+
+
     // const [user, setUser] = useState("");
     // const [loading, setLoading] = useState(false);
     // const [loggedIn, setLoggedIn] = useState(false);
@@ -89,7 +92,8 @@ class LoginContainer extends Component {
     const mapDispatchToProps = dispatch => ({
         loginUser: user => dispatch(loginUser(user)),
         addUser: user => dispatch(addUser(user)),
-        signoutUser: user => dispatch(signoutUser(user))
+        signoutUser: user => dispatch(signoutUser(user)),
+        currentUser: () => dispatch(currentUser())
     })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)

@@ -5,6 +5,8 @@ import {fetchUsers} from '../actions/fetchUsers'
 import {addUser} from '../actions/addUser'
 import {loginUser} from '../actions/loginUser'
 import {fetchRecords} from '../actions/fetchRecords'
+import {currentUser} from '../actions/currentUser'
+
 import User from '../components/Users/User'
 import EditUser from '../components/Users/EditUser'
 import DailyRecordsContainer from '../containers/DailyRecordsContainer';
@@ -14,6 +16,7 @@ import DailyRecordsContainer from '../containers/DailyRecordsContainer';
 class UsersContainer extends Component {
 
     componentDidMount() {
+        this.props.currentUser()
         this.props.fetchRecords(this.props.user)
     }
     
@@ -38,6 +41,7 @@ class UsersContainer extends Component {
 
 const mapDispatchToProps = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
+    currentUser: () => dispatch(currentUser()),
     fetchRecords: user => dispatch(fetchRecords(user)),
     addUser: user => dispatch(addUser(user)),
     loginUser: user => dispatch(loginUser(user))
