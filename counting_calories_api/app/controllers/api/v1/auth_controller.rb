@@ -7,6 +7,7 @@ class Api::V1::AuthController < ApplicationController
         @user = User.find_by(username: user_params[:username])
         if @user && @user.authenticate(user_params[:password])
             token = issue_token(@user)
+            cookies.signed[:jwt] = {value: token, httponly: true, expires: 1.hour.from_now}
             render json: {user: UserSerializer.new(@user), jwt: token}
         else
             render json: {error: "Incorrect Username/Password"}, status: 401

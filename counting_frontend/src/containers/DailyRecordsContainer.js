@@ -14,11 +14,16 @@ import DailyRecords from '../components/DailyRecords/DailyRecords'
 
 class DailyRecordsContainer extends Component {
 
-    componentDidUpdate(prevProps) {
-        if (this.props.records.length > prevProps.records.length) {
-            this.props.fetchRecords(this.props.user)
-            this.checkedOut()
-        }
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.records.length > prevProps.records.length) {
+    //         this.props.fetchRecords(this.props.user)
+    //         this.checkedOut()
+    //     }
+    // }
+
+    componentDidMount() {
+        this.props.fetchRecords(this.props.user)
+
     }
 
     constructor(props) {

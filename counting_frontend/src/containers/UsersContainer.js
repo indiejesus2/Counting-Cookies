@@ -14,11 +14,11 @@ import DailyRecordsContainer from '../containers/DailyRecordsContainer';
 
 
 class UsersContainer extends Component {
-
+    
     componentDidMount() {
         this.props.currentUser()
-        this.props.fetchRecords(this.props.user)
     }
+
     
     render() {
             return (

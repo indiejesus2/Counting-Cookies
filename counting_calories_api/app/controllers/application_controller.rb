@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
+    include ::ActionController::Cookies
     protect_from_forgery unless: -> {request.format.json? }
 
     before_action :authorized
 
    def jwt_key
-       Rails.application.credentials.jwt_key
+       ENV['SESSION_SECRET']
    end
 
    def issue_token(user)
