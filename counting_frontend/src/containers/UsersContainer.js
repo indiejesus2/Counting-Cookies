@@ -6,7 +6,6 @@ import {addUser} from '../actions/addUser'
 import {loginUser} from '../actions/loginUser'
 import {fetchRecords} from '../actions/fetchRecords'
 import {currentUser} from '../actions/currentUser'
-
 import User from '../components/Users/User'
 import EditUser from '../components/Users/EditUser'
 import DailyRecordsContainer from '../containers/DailyRecordsContainer';
@@ -15,9 +14,7 @@ import DailyRecordsContainer from '../containers/DailyRecordsContainer';
 
 class UsersContainer extends Component {
     
-    componentDidMount() {
-        this.props.currentUser()
-    }
+
 
     
     render() {
@@ -26,8 +23,8 @@ class UsersContainer extends Component {
                     <div class="user">
                         <Switch>
                             <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
-                            <Route direct path='/signin'><Redirect to="/users" /></Route>
-                            <Route direct path='/editprofile' render={(routerProps) => <EditUser {...routerProps} user={this.props.user} />}/>
+                            {/* <Route direct path='/signin'><Redirect to="/users" /></Route> */}
+                            <Route path='/editprofile' render={(routerProps) => <EditUser {...routerProps} user={this.props.user} />}/>
                         </Switch>
                     </div>
 

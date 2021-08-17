@@ -16,7 +16,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 class LoginContainer extends Component {
 
-
+    componentDidMount() {
+        this.props.currentUser()
+    }
 
 
     // const [user, setUser] = useState("");
@@ -59,7 +61,8 @@ class LoginContainer extends Component {
                         <UsersContainer user={this.props.user}/>
                     </div>
                 )
-            } else {
+            }
+             else {
                 return (
 <div>
 <div class="header">
@@ -73,7 +76,7 @@ class LoginContainer extends Component {
                         <Switch>
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
                             <Route direct path='/signin' render={(routerProps) => <SignIn {...routerProps} loginUser={this.props.loginUser} setSession={this.props.setSession}/>}/>
-                            <Route direct path='/signout' render={(routerProps) => <SignOut {...routerProps} signoutUser={this.props.signoutUser} /> }/>
+                            <Route direct path='/signout' render={(routerProps) => <SignOut {...routerProps} signoutUser={this.props.signoutUser} user={this.props.user}/> }/>
                             <Route direct path='/'><Redirect to="/signin" /></Route>
                         </Switch>
                     </div>

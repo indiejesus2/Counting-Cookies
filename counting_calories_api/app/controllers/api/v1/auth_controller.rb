@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :destroy]
 
     wrap_parameters :user, include: [:username, :password]
 
@@ -22,6 +22,10 @@ class Api::V1::AuthController < ApplicationController
             render json: {error: 'No user could be found'}, status: 401
         end
     end
+
+    # def destroy
+    #     byebug
+    # end
 
     private
 

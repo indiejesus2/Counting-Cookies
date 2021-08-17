@@ -9,7 +9,7 @@ class NavBar extends Component {
             return (
                 <div>
                     <Nav.Item>
-                        <Nav.Link href='/logout'>Sign-Out</Nav.Link>
+                        <Nav.Link href='/signout'>Sign-Out</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href='/editprofile'>Profile</Nav.Link>

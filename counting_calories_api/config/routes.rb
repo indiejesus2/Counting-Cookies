@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
         get '/current_user', to: 'auth#show'
         post '/sign_up', to: 'users#create'
+      # delete '/sign_out', to: 'auth#destroy'
       resources :users do
         resources :records do
           resources :days

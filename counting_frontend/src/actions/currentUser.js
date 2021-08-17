@@ -2,7 +2,7 @@ import * as Cookies from 'js-cookie'
 
 export function currentUser() {
     let token = Cookies.get("eduResourceSession")
-    // debugger
+    debugger
     return (dispatch) => {
         if (token) {
             const configObj = {
@@ -14,6 +14,7 @@ export function currentUser() {
                 },
                 credentials: 'include',
             }
+            dispatch({type: 'FETCH_USER'})
             fetch('http://localhost:3000/api/v1/current_user', configObj).then(resp => resp.json())
         .then(user => dispatch({
             type: 'CURRENT_USER',

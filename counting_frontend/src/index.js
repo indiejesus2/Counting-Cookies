@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware} from 'redux'
 import { Provider } from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom'
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import usersReducer from './reducers/usersReducer'
 import recordsReducer from './reducers/recordsReducer'
 import loginReducer from './reducers/loginReducer'
@@ -17,19 +17,19 @@ import App from './App';
 const rootReducer = combineReducers({
   usersReducer,
   recordsReducer,
-  loginReducer,
-  sessionReducer
+  loginReducer
+  //sessionReducer
 });
 
-let store = createStore(rootReducer, applyMiddleware(thunk));
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-const validateSession = (session) => {
-  return true
-}
+// const validateSession = (session) => {
+//   return true
+// }
 
-const options = { refreshOnCheckAuth: true, redirectPath: '/', driver: "COOKIES", validateSession };
+// const options = { refreshOnCheckAuth: true, redirectPath: '/', driver: "COOKIES", validateSession };
 
-sessionService.initSessionService(store, options)
+// sessionService.initSessionService(store, options)
 
 ReactDOM.render(
   <Provider store={store}>
