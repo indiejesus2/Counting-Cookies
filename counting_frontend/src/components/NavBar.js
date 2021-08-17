@@ -7,14 +7,21 @@ class NavBar extends Component {
     render() {
         if (this.props.loggedIn == true) {
             return (
-                <div>
+                <div className="nav">
+                    <Nav>
+
                     <Nav.Item>
-                        <Nav.Link href='/signout'>Sign-Out</Nav.Link>
+                        <Nav.Link href='/signout' onClick={this.props.signoutUser}>Sign-Out</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href='/editprofile'>Profile</Nav.Link>
-                        {/* <Nav.Link href={`/users/${this.props.user.id}/addRecord`}>Add Record</Nav.Link> */}
+                        {/* <Nav.Link href='/editpro'>Profile</Nav.Link> */}
+                        <Nav.Link href={`/users/${this.props.user.id}`}>Profile</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        {/* <Nav.Link href='/editpro'>Profile</Nav.Link> */}
+                        <Nav.Link href='/users'>Records</Nav.Link>
+                    </Nav.Item>
+                    </Nav>
                 </div>
             )
         }

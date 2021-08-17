@@ -18,5 +18,6 @@
 // }
 
 export const signoutUser = () => {
+    debugger
     return { type: 'LOGOUT_USER'}
 }

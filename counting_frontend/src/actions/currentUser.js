@@ -2,7 +2,6 @@ import * as Cookies from 'js-cookie'
 
 export function currentUser() {
     let token = Cookies.get("eduResourceSession")
-    debugger
     return (dispatch) => {
         if (token) {
             const configObj = {

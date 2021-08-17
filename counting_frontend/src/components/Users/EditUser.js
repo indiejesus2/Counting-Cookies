@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 
 export default function EditUser(props) {
 
-    const [username, setUsername] = useState(props.username)
-    const [target, setTarget] = useState(props.target)
+    const [name, setUsername] = useState(props.user.username)
+    const [target, setTarget] = useState(props.user.target)
 
     const handleChange = (event) => {
         return(
-            event.target.name==="username"?setUsername(event.target.value):
+            event.target.name==="name"?setUsername(event.target.value):
             event.target.name==="target"?setTarget(event.target.value):
             ()=>{}
             )
@@ -24,7 +24,7 @@ export default function EditUser(props) {
             <div className="input">
                 <form onSubmit={handleSubmit}>
                     <label>Username: </label>
-                    <input type="text" name="username" id="username" value={username} onChange={handleChange}/>
+                    <input type="text" name="name" id="name" value={name} onChange={handleChange}/>
                     <label>Daily Target: </label>
                     <input type="number" name="target" id="target" value={target} onChange={handleChange}/>
                     <div className="submit">

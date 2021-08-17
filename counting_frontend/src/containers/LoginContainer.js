@@ -34,8 +34,7 @@ class LoginContainer extends Component {
                         </div>
                     <Jumbotron class="jumbotron">
                     <div class="header">
-                        <h1>Counting Cookies</h1>
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} />
                         </div>
                   </Jumbotron>
                   <div className="spinner">
@@ -56,7 +55,7 @@ class LoginContainer extends Component {
                         </div>
                     <Jumbotron class="jumbotron">
 
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
                   </Jumbotron>
                         <UsersContainer user={this.props.user}/>
                     </div>
@@ -71,7 +70,7 @@ class LoginContainer extends Component {
 
                     <Jumbotron class="jumbotron">
 
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user}/>
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
                   </Jumbotron>
                         <Switch>
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
@@ -97,7 +96,7 @@ class LoginContainer extends Component {
     const mapDispatchToProps = dispatch => ({
         loginUser: user => dispatch(loginUser(user)),
         addUser: user => dispatch(addUser(user)),
-        signoutUser: user => dispatch(signoutUser(user)),
+        signoutUser: () => dispatch(signoutUser()),
         currentUser: () => dispatch(currentUser())
     })
 

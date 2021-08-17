@@ -1,8 +1,8 @@
 import { sessionService } from "redux-react-session"
 import * as Cookies from 'js-cookie'
+import storage from "redux-persist/lib/storage"
 
 export default function loginReducer(state = {user: [], loggedIn: false, loading: false, token: "", message: ""}, action) {
-    // debugger
     switch(action.type) {
         case 'FETCH_USER':
             return {loading: true}
@@ -29,7 +29,7 @@ export default function loginReducer(state = {user: [], loggedIn: false, loading
         case 'LOGOUT_USER':
             // localStorage.clear();
             Cookies.remove('eduResourceSession')
-            debugger
+            storage.removeItem('persist:key')
             return {user: [],
                 loggedIn: false,
                 token: ""
