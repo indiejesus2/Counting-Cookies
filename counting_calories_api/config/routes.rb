@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  root 'users#index'
   namespace :api do
     namespace :v1 do
       post '/login', to: 'auth#create'
