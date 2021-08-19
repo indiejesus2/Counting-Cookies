@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2021_05_23_183210) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "days", force: :cascade do |t|
     t.string "item_name"
     t.integer "item_calories"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "record_id"
-    t.index ["record_id"], name: "index_days_on_record_id"
+    t.bigint "records_id"
+    t.index ["records_id"], name: "index_days_on_records_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -45,5 +48,5 @@ ActiveRecord::Schema.define(version: 2021_05_23_183210) do
     t.string "password_digest"
   end
 
-  add_foreign_key "days", "records"
+  add_foreign_key "days", "records", column: "records_id"
 end
