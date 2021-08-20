@@ -20,4 +20,4 @@ Pull requests are encouraged on [GitHub](https://github.com/indiejesus2/counting
 
 ## License
 
-This gem is an open source under the terms of the [MIT License](https://github.com/indiejesus2/counting-cookies/blob/main/LICENSE).
+This gem is an open source under the terms of the [MIT License](https://github.com/indiejesus2/counting-cookies/blob/main/LICENSE)
