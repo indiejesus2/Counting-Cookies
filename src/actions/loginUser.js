@@ -12,6 +12,7 @@ export const loginUser = (user) => {
             body: JSON.stringify(user)
         }
         dispatch({type: 'FETCH_USER'})
+        // return fetch(`http://localhost:3000/api/v1/login`, configObj)
         return fetch(`http://counting-cookies-api.herokuapp.com/api/v1/login`, configObj)
         .then(resp => resp.json())
             // const { token } = resp;
