@@ -21,7 +21,7 @@ class DailyRecord extends Component {
     }
 
     render() { 
-        const record = this.props.records.filter(record => record.id == this.props.match.params.record_id)[0]
+        const record = this.props.records.filter(record => record.id === this.props.match.params.record_id)[0]
         const days = record.days.filter(day => day.record_id === record.id)
         return (
             <Card style={{ width: '18rem' }}>

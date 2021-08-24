@@ -30,7 +30,7 @@ class Calendar extends Component {
         return (
             <div style={cellStyle}>
                 {this.props.records.map(function(record) {
-                    if (record.date == date) {
+                    if (record.date === date) {
                         return (
                         <div style={birthdayStyle}>
                             <Link to={`/users/${record.user_id}/records/${record.id}`}>Cookie</Link>

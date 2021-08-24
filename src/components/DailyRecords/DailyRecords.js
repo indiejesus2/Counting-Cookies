@@ -13,6 +13,8 @@ class DailyRecords extends Component {
                 return <Calendar className="calendar" records={this.props.records} />
             case "List":
                 return this.renderList()
+            default:
+                return this.renderList()
         }
     }
 

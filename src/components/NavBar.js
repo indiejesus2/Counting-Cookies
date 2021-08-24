@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 class NavBar extends Component {
 
     render() {
-        if (this.props.loggedIn == true) {
+        if (this.props.loggedIn === true) {
             return (
                 <div className="nav">
                     <Nav>
@@ -14,11 +14,9 @@ class NavBar extends Component {
                         <Nav.Link href='/signout' onClick={this.props.signoutUser}>Sign-Out</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        {/* <Nav.Link href='/editpro'>Profile</Nav.Link> */}
                         <Nav.Link href={`/users/${this.props.user.id}`}>Profile</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        {/* <Nav.Link href='/editpro'>Profile</Nav.Link> */}
                         <Nav.Link href='/users'>Records</Nav.Link>
                     </Nav.Item>
                     </Nav>
