@@ -24,8 +24,6 @@
   },
   "scripts": {
     "start": "export PORT=3001 && react-scripts start",
-    "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "npm run prod",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
