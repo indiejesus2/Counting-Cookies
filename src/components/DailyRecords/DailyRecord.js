@@ -16,12 +16,12 @@ class DailyRecord extends Component {
         this.props.deleteItem(item, this.props.user.id)
     }
 
-    handleClose = () => {
-        debugger
-    }
+    // handleClose = () => {
+    //     debugger
+    // }
 
     render() { 
-        const record = this.props.records.filter(record => record.id === this.props.match.params.record_id)[0]
+        const record = this.props.records.filter(record => record.id === Number(this.props.match.params.record_id))[0]
         const days = record.days.filter(day => day.record_id === record.id)
         return (
             <Card style={{ width: '18rem' }}>

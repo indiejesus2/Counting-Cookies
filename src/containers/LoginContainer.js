@@ -29,7 +29,7 @@ class LoginContainer extends Component {
         if (this.props.loading === true) {
             return (
 <div>
-<div class="header">
+<div className="header">
                         <h1>Counting Cookies</h1>
                         </div>
                     <Jumbotron class="jumbotron">
@@ -64,7 +64,7 @@ class LoginContainer extends Component {
              else {
                 return (
 <div>
-<div class="header">
+<div className="header">
                         <h1>Counting Cookies</h1>
                         </div>
 

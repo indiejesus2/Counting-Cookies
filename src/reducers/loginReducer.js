@@ -32,7 +32,7 @@ export default function loginReducer(state = {user: [], loggedIn: false, loading
                 token: ""
             }
         case 'SIGNUP_USER':
-            return {user: action.payload.user.data,
+            return {user: action.payload.user.data.attributes,
                 loggedIn: true,
                 loading: false,
                 token: action.payload.jwt
