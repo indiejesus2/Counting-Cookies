@@ -26,25 +26,25 @@ class LoginContainer extends Component {
     // const [loggedIn, setLoggedIn] = useState(false);
     // const [state, dispatch] = useReducer(loginReducer, user);
     render() {
-//         if (this.props.loading === true) {
-//             return (
-// <div>
-// <div class="header">
-//                         <h1>Counting Cookies</h1>
-//                         </div>
-//                     <Jumbotron class="jumbotron">
-//                     <div class="header">
-//                         <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} />
-//                         </div>
-//                   </Jumbotron>
-//                   <div className="spinner">
-//                     <Spinner animation="border" role="status">
-//                         <span className="sr-only">Loading...</span>
-//                     </Spinner>
-//                   </div>
-//                 </div>
-//             )
-//         } else {
+        if (this.props.loading === true) {
+            return (
+<div>
+<div class="header">
+                        <h1>Counting Cookies</h1>
+                        </div>
+                    <Jumbotron class="jumbotron">
+                    <div class="header">
+                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} />
+                        </div>
+                  </Jumbotron>
+                  <div className="spinner">
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                  </div>
+                </div>
+            )
+        } else {
             if (this.props.loggedIn === true) {
 
                 return (
@@ -81,7 +81,7 @@ class LoginContainer extends Component {
                     </div>
             )}
         }
-    // }
+    }
 }
 
     const mapStateToProps = state => {

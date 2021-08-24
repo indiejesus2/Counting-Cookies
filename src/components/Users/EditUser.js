@@ -17,7 +17,6 @@ export default function EditUser(props) {
 
     }
 
-    debugger
     return(
         <div className="profile">
             <h3>Profile</h3>

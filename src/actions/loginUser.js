@@ -8,7 +8,7 @@ export const loginUser = (user) => {
             },
             body: JSON.stringify(user)
         }
-        // dispatch({type: 'FETCH_USER'})
+        dispatch({type: 'FETCH_USER'})
         return fetch(`https://counting-cookies-api.herokuapp.com/api/v1/login`, configObj)
         .then(resp => resp.json())
         .then(user => dispatch({

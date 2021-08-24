@@ -29,7 +29,7 @@ class Calendar extends Component {
           };
         return (
             <div style={cellStyle}>
-                {this.props.records.forEach(function(record) {
+                {this.props.records.map(function(record) {
                     if (record.date === date) {
                         return (
                         <div style={birthdayStyle}>
