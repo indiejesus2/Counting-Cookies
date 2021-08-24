@@ -14,7 +14,7 @@ export function currentUser() {
                 credentials: 'include',
             }
             dispatch({type: 'FETCH_USER'})
-            fetch('http://counting-cookies-api.herokuapp.com/api/v1/current_user', configObj).then(resp => resp.json())
+            fetch('https://counting-cookies-api.herokuapp.com/api/v1/current_user', configObj).then(resp => resp.json())
         .then(user => dispatch({
             type: 'CURRENT_USER',
             payload: user

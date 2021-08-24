@@ -8,7 +8,7 @@ export const addVote = (record) => {
             },
             body: JSON.stringify(record)
         };
-        return fetch(`http://counting-cookies-api.herokuapp.com/api/v1/users/${record.user_id}/records/${record.id}`, configObj)
+        return fetch(`https://counting-cookies-api.herokuapp.com/api/v1/users/${record.user_id}/records/${record.id}`, configObj)
         .then(resp => resp.json())
         .then(record => dispatch({type: 'EDIT_RECORD', payload: record}))
     }

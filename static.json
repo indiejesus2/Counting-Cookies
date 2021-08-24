@@ -3,6 +3,7 @@
     "routes": {
       "/**": "index.html"
     },
+    "https_only": false,
     "proxies": {
       "/api/": {
         "origin": "https://counting-cookies-api.herokuapp.com/"

@@ -9,7 +9,7 @@ export const addUser = (user) => {
             body: JSON.stringify(user)
         };
         dispatch({type: 'FETCH_USER'})
-        return fetch('http://counting-cookies-api.herokuapp.com/api/v1/users', configObj)
+        return fetch('https://counting-cookies-api.herokuapp.com/api/v1/users', configObj)
         .then(response => response.json())
         .then(user => dispatch({type: 'SIGNUP_USER', payload: user}))
     }

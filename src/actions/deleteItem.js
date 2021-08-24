@@ -1,6 +1,6 @@
 export const deleteItem = (item, user) => {
     return (dispatch) => {
-        return (fetch(`http://counting-cookies-api.herokuapp.com/api/v1/users/${user}/records/${item.record_id}/days/${item.id}`, {
+        return (fetch(`https://counting-cookies-api.herokuapp.com/api/v1/users/${user}/records/${item.record_id}/days/${item.id}`, {
             method: "DELETE",
         }))
         .then(resp => resp.json())
