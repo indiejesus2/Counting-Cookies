@@ -11,7 +11,6 @@ const rootReducer = combineReducers({
     usersReducer,
     recordsReducer,
     loginReducer
-    //sessionReducer
   });
   
   const persistenceConfigs = {
