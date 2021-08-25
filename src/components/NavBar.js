@@ -13,12 +13,12 @@ class NavBar extends Component {
                     <Nav.Item>
                         <Nav.Link href='/signout' onClick={this.props.signoutUser}>Sign-Out</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                         <Nav.Link href={`/users/${this.props.user.id}`}>Profile</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href='/users'>Records</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     </Nav>
                 </div>
             )
