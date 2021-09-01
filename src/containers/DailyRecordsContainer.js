@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {addRecord} from '../actions/addRecord'
 import {editRecord} from '../actions/editRecord'
 import {deleteRecord} from '../actions/deleteRecord'
@@ -61,9 +61,11 @@ class DailyRecordsContainer extends Component {
                         </label>
 
                     </div>
-                    <Route path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
-                    <DailyRecords records={this.props.records} editRecord={this.props.editRecord} user={this.props.user} displayedComponent={this.state.displayedComponent}/>
-                    <DailyRecordInput user={this.props.user} date={this.props.date} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord} />
+                    <Switch>
+                        <DailyRecords records={this.props.records} editRecord={this.props.editRecord} user={this.props.user} displayedComponent={this.state.displayedComponent}/>
+                        <DailyRecordInput user={this.props.user} date={this.props.date} records={this.props.records} addRecord={this.props.addRecord} editRecord={this.props.editRecord} />
+                        <Route path='/users/:id/records/:record_id' render={(routerProps) => <DailyRecord {...routerProps} user={this.props.user} records={this.props.records} deleteRecord={this.props.deleteRecord} deleteItem={this.props.deleteItem} />}/>
+                    </Switch>
                 </div>
             )
         } else {

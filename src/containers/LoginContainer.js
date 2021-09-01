@@ -18,8 +18,12 @@ class LoginContainer extends Component {
 
     componentDidMount() {
         this.props.currentUser()
+        // window.addEventListener('beforeunload', this.handleWindowClose);
     }
 
+    handleWindowClose() {
+        this.props.signoutUser()
+    }
 
     // const [user, setUser] = useState("");
     // const [loading, setLoading] = useState(false);
@@ -32,9 +36,9 @@ class LoginContainer extends Component {
 <div className="header">
                         <h1>Counting Cookies</h1>
                         </div>
-                    <Jumbotron class="jumbotron">
-                    <div class="header">
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} />
+                    <Jumbotron className="jumbotron">
+                    <div className="header">
+                        <NavBar className="navbar" loggedIn={this.props.loggedIn} user={this.props.user} />
                         </div>
                   </Jumbotron>
                   <div className="spinner">
@@ -50,12 +54,12 @@ class LoginContainer extends Component {
                 return (
 
                     <div>
-                                            <div class="header">
+                                            <div className="header">
                         <h1>Counting Cookies</h1>
                         </div>
-                    <Jumbotron class="jumbotron">
+                    <Jumbotron className="jumbotron">
 
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
+                        <NavBar className="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
                   </Jumbotron>
                         <UsersContainer user={this.props.user}/>
                     </div>
@@ -68,9 +72,9 @@ class LoginContainer extends Component {
                         <h1>Counting Cookies</h1>
                         </div>
 
-                    <Jumbotron class="jumbotron">
+                    <Jumbotron className="jumbotron">
 
-                        <NavBar class="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
+                        <NavBar className="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
                   </Jumbotron>
                         <Switch>
                         <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
