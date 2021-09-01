@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 export default function EditUser(props) {
     
     const [name, setName] = useState(props.user.name)
-    const [name, setUsername] = useState(props.user.username)
+    const [username, setUsername] = useState(props.user.username)
     const [target, setTarget] = useState(props.user.target)
 
     const handleChange = (event) => {
