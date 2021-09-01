@@ -19,6 +19,9 @@ class NavBar extends Component {
                     <Nav.Item>
                         <Nav.Link href='/users'>Records</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href={`/users/${this.props.user.id}/records/add_record`}>Add Record</Nav.Link>
+                    </Nav.Item>
                     </Nav>
                 </div>
             )
