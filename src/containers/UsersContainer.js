@@ -21,9 +21,9 @@ class UsersContainer extends Component {
                 <div>
                     <div class="user">
                         <Switch>
-                            <Route exact path='/users/:id' render={(routerProps) => <EditUser {...routerProps} user={this.props.user} />}/>
-                            <Route direct path='/signin'><Redirect to="/users" /></Route>
-                            <Route exact path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
+                            <Route direct path='/users/:id' render={(routerProps) => <EditUser {...routerProps} user={this.props.user} />}/>
+                            <Route direct path='/'><Redirect to="/users" /></Route>
+                            <Route direct path='/users' render={(routerProps) => <User {...routerProps} user={this.props.user} />}/>
                         </Switch>
                     </div>
                 </div>

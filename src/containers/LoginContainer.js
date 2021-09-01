@@ -77,10 +77,10 @@ class LoginContainer extends Component {
                         <NavBar className="navbar" loggedIn={this.props.loggedIn} user={this.props.user} signoutUser={this.props.signoutUser}/>
                   </Jumbotron>
                         <Switch>
-                        <Route direct path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
-                            <Route direct path='/signin' render={(routerProps) => <SignIn {...routerProps} loginUser={this.props.loginUser} setSession={this.props.setSession}/>}/>
-                            <Route direct path='/signout' render={(routerProps) => <SignOut {...routerProps} signoutUser={this.props.signoutUser} user={this.props.user}/> }/>
-                            <Route direct path='/'><Redirect to="/signin" /></Route>
+                        <Route exact path ='/users/new' render={(routerProps) => <UserInput {...routerProps} addUser={this.props.addUser} />} />
+                            <Route exact path='/signin' render={(routerProps) => <SignIn {...routerProps} loginUser={this.props.loginUser} setSession={this.props.setSession}/>}/>
+                            <Route exact path='/signout' render={(routerProps) => <SignOut {...routerProps} signoutUser={this.props.signoutUser} user={this.props.user}/> }/>
+                            <Route exact path='/'><Redirect to="/signin" /></Route>
                         </Switch>
                     </div>
             )}
